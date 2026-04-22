@@ -1,10 +1,13 @@
-
+import { Routes, Route } from "react-router";
+import Home from "./pages/Home";
 
 function App() {
 
   return (
     <>
-      <h1 className="bg-blue-600 text-5xl text-orange-500">Ecobazzar</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </>
   )
 }
