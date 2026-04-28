@@ -23,10 +23,11 @@ const TopBar = () => {
           </div>
           <div className='flex gap-x-5'>
             <div className='flex items-center' onClick={handleClickLanDrop}>Eng <FaAngleDown /></div>
-            <div className='absolute top-[35px] text-gry p-3.25 hidden' ref={dropRefLan}>
+            <div className='absolute top-[35px] bg-gry p-3.25 hidden' ref={dropRefLan}>
               <ul>
-                <li>Bn</li>
-                <li>Ch</li>
+                <li>BN</li>
+                <li>CH</li>
+                <li>HI</li>
               </ul>
             </div>
             <div className='flex items-center'>USD <FaAngleDown /></div>
