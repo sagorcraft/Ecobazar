@@ -1,11 +1,11 @@
 import React from 'react'
 import { Outlet } from 'react-router'
-import Topbar from '../Topbar'
+import TopBar from '../TopBar'
 
 const MainLayouts = () => {
   return (
     <>
-      <Topbar />
+      <TopBar />
       <Outlet />
     </>
   )
