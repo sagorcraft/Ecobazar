@@ -15,7 +15,7 @@ const TopBar = () => {
     }
   }
   return (
-    <div className='border-b border-solid border-b-gry text-sm font-pop text-[#666666] py-3.25'>
+    <div className='border-b border-solid border-b-gry text-sm font-Poppins text-[#666666] py-3.25'>
       <Container >
         <div className='flex justify-between'>
           <div className='flex items-center gap-x-2'>

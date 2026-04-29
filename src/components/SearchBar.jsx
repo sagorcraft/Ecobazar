@@ -6,8 +6,12 @@ const SearchBar = () => {
   return (
     <Container>
       <div className='flex justify-between'>
-        <div className=''>
-          <img src={Logo} alt="logo" />
+        <div className='w-40 h-17'>
+          <img 
+            src={Logo} 
+            alt="logo" 
+            fetchpriority="high"
+          />
         </div>
         <div>sdfsdf</div>
         <div>sdfsdf</div>
