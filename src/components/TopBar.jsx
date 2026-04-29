@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import Container from './layouts/Container'
 import { CiLocationOn } from "react-icons/ci";
 import { FaAngleDown } from "react-icons/fa";
+import { Link } from 'react-router';
 
 const TopBar = () => {
   let dropRefLan = useRef(null)
@@ -31,7 +32,7 @@ const TopBar = () => {
               </ul>
             </div>
             <div className='flex items-center'>USD <FaAngleDown /></div>
-            <div className='flex items-center relative after:w-[1px] after:h-[15px] after:bg-[#E6E6E6] after:content-[] after:absolute after:top-[2px] after:left-[-10px]'>Sign In / Sign Up</div>
+            <div className='flex items-center relative after:w-[1px] after:h-[15px] after:bg-[#E6E6E6] after:content-[] after:absolute after:top-[2px] after:left-[-10px]'><Link to="/login">Sign In</Link> / <Link to="/registration">Sign Up</Link></div>
           </div>
         </div>
       </Container>
