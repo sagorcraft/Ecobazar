@@ -5,7 +5,7 @@ const FooterLinks = () => {
   return (
     <div className='bg-gray-900'>
       <Container>
-        <div className='flex gap- gird grid-cols-2 w-full'>
+        <div className='flex gird grid-cols-2 w-full'>
           <div>jhsfdjksadf</div>
           <div>jhsfdjksadf</div>
           <div>jhsfdjksadf</div>
