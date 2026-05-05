@@ -26,7 +26,7 @@ const TopBar = () => {
           {/* Language Dropdown */}
           <div className='flex gap-x-5'>
             <div onClick={() => setOpenLan(!openLan)} className='flex items-center cursor-pointer' ref={dropDownLanRef}>
-              Eng <FaAngleDown />
+              Eng <FaAngleDown size={20} />
               {openLan &&
                 <div className='absolute top-8.75 bg-gry p-3.25'>
                   <ul>
@@ -39,7 +39,7 @@ const TopBar = () => {
             </div>
             {/* Currency Dropdown */}
             <div onClick={() => setCurrencyOpen(!currencyOpen)} className='flex items-center' ref={dropDownCurrencyRef}>
-              USD <FaAngleDown />
+              USD <FaAngleDown size={20} />
               {currencyOpen &&
                 <div className='absolute top-8.75 bg-gry p-3.25'>
                   <ul>

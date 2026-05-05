@@ -21,9 +21,9 @@ const SearchBar = () => {
 
         {/* search start here */}
         <div className='flex -shrink-1 relative '>
-          <RiSearchLine className='absolute top-1/2 left-3 -translate-y-1/2' />
+          <RiSearchLine className='absolute top-1/2 left-3 -translate-y-1/2 text-2xl' />
           <input 
-            className='border border-[#808080] w-[498px] py-3 pl-11 placeholder:text-[#808080] placeholder:text-sm placeholder:font-pop rounded-l-md' 
+            className='border border-[#808080] border-r-0 w-[498px] py-3 pl-11 placeholder:text-[#808080] placeholder:text-sm placeholder:font-pop rounded-l-md' 
             type="text"  
             placeholder='Search' 
           />
