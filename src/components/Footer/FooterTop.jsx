@@ -20,7 +20,7 @@ const FooterTop = () => {
             <div className='relative '>
               <RiSearchLine className='absolute top-0 left-4 translate-y-1/2 text-2xl' />
               <input 
-                className='border border-[#808080] border-r-0 w-[400px] py-3 pl-11 placeholder:text-[#808080] placeholder:text-sm placeholder:font-pop rounded-bl-full rounded-tl-full' 
+                className='border border-[#808080] border-r-0 w-[400px] py-3 pl-11 placeholder:text-[#808080] placeholder:text-sm placeholder:font-pop rounded-bl-full rounded-tl-full bg-white' 
                 type="text"  
                 placeholder='Your email address' 
               />
