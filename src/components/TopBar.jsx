@@ -25,10 +25,10 @@ const TopBar = () => {
           </div>
           {/* Language Dropdown */}
           <div className='flex gap-x-5'>
-            <div onClick={() => setOpenLan(!openLan)} className='flex items-center cursor-pointer font-pop font-normal text-sm text-[#808080]' ref={dropDownLanRef}>
+            <div onClick={() => setOpenLan(!openLan)} className='flex items-center cursor-pointer font-pop font-normal text-sm text-[#808080] relative' ref={dropDownLanRef}>
               Eng <FaAngleDown size={20} />
               {openLan &&
-                <div className='absolute top-10 bg-gry text-[#808080] p-3.25'>
+                <div className='absolute top-7 left-0 bg-gry p-3.25 z-10'>
                   <ul className='font-pop font-normal text-sm text-[#808080]'>
                     <li>BN</li>
                     <li>CH</li>
@@ -38,10 +38,10 @@ const TopBar = () => {
               }
             </div>
             {/* Currency Dropdown */}
-            <div onClick={() => setCurrencyOpen(!currencyOpen)} className='flex items-center cursor-pointer font-pop font-normal text-sm text-[#808080]' ref={dropDownCurrencyRef}>
+            <div onClick={() => setCurrencyOpen(!currencyOpen)} className='flex items-center cursor-pointer font-pop font-normal text-sm text-[#808080] relative' ref={dropDownCurrencyRef}>
               USD <FaAngleDown size={20} />
               {currencyOpen &&
-                <div className='absolute top-10 bg-gry text-[#808080] p-3.25'>
+                <div className='absolute top-7 left-0 bg-gry p-3.25 z-10'>
                   <ul className='font-pop font-normal text-sm text-[#808080] hover:text-gray-500'>
                     <li>BDT</li>
                     <li>EUR</li>
