@@ -20,16 +20,16 @@ const TopBar = () => {
       <Container >
         <div className='flex justify-between'>
           <div className='flex items-center gap-x-2'>
-            <CiLocationOn />
-            <p>Store Location: Lincoln- 344, Illinois, Chicago, USA</p>
+            <Link to="#" className='text-[#808080] flex items-center'><CiLocationOn size={22}/></Link>
+            <span className='font-pop font-normal text-sm text-[#808080]'>Store Location: Lincoln- 344, Illinois, Chicago, USA</span>
           </div>
           {/* Language Dropdown */}
           <div className='flex gap-x-5'>
-            <div onClick={() => setOpenLan(!openLan)} className='flex items-center cursor-pointer' ref={dropDownLanRef}>
+            <div onClick={() => setOpenLan(!openLan)} className='flex items-center cursor-pointer font-pop font-normal text-sm text-[#808080]' ref={dropDownLanRef}>
               Eng <FaAngleDown size={20} />
               {openLan &&
-                <div className='absolute top-8.75 bg-gry p-3.25'>
-                  <ul>
+                <div className='absolute top-10 bg-gry text-[#808080] p-3.25'>
+                  <ul className='font-pop font-normal text-sm text-[#808080]'>
                     <li>BN</li>
                     <li>CH</li>
                     <li>HI</li>
@@ -38,11 +38,11 @@ const TopBar = () => {
               }
             </div>
             {/* Currency Dropdown */}
-            <div onClick={() => setCurrencyOpen(!currencyOpen)} className='flex items-center' ref={dropDownCurrencyRef}>
+            <div onClick={() => setCurrencyOpen(!currencyOpen)} className='flex items-center cursor-pointer font-pop font-normal text-sm text-[#808080]' ref={dropDownCurrencyRef}>
               USD <FaAngleDown size={20} />
               {currencyOpen &&
-                <div className='absolute top-8.75 bg-gry p-3.25'>
-                  <ul>
+                <div className='absolute top-10 bg-gry text-[#808080] p-3.25'>
+                  <ul className='font-pop font-normal text-sm text-[#808080] hover:text-gray-500'>
                     <li>BDT</li>
                     <li>EUR</li>
                     <li>GBP</li>
@@ -51,7 +51,11 @@ const TopBar = () => {
               }
             </div>
             {/* sign in & sign Up here */}
-            <div className='flex items-center relative after:w-[1px] after:h-[15px] after:bg-[#E6E6E6] after:content-[] after:absolute after:top-[2px] after:left-[-10px]'><Link to="/login">Sign In</Link> / <Link to="/registration">Sign Up</Link></div>
+            <div className='flex items-center relative after:w-[1px] after:h-6 after:bg-[#E6E6E6] after:content-[""] after:absolute after:top-[2px] after:left-[-10px]'>
+              <Link to="/login" className='font-pop font-normal text-sm text-[#808080] mr-1'>Sign In</Link> 
+              <span>/</span> 
+              <Link to="/registration" className='font-pop font-normal text-sm text-[#808080] ml-1'>Sign Up</Link>
+            </div>
           </div>
         </div>
       </Container>

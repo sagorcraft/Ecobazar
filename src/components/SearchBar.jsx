@@ -20,14 +20,14 @@ const SearchBar = () => {
         {/* logo ends here */}
 
         {/* search start here */}
-        <div className='relative '>
-          <RiSearchLine className='absolute top-0 left-4 translate-y-1/2 text-2xl' />
+        <div className='relative flex items-center'>
+          <RiSearchLine className='absolute left-4 text-[20px] text-[#808080]' />
           <input 
-            className='border border-[#808080] border-r-0 w-[400px] py-3 pl-11 placeholder:text-[#808080] placeholder:text-sm placeholder:font-pop rounded-bl-md rounded-tl-md' 
+            className='border border-[#808080] border-r-0 w-[400px] py-3 pl-11 placeholder:text-[#808080] placeholder:text-sm placeholder:font-pop placeholder:font-normal rounded-bl-md rounded-tl-md'
             type="text"  
             placeholder='Search' 
           />
-          <button className='font-pop font-semibold text-sm text-[14px] leading-5 py-3.75 px-6 bg-primary active:bg-green-500 relative top-[-2px] rounded-tr-md rounded-br-md cursor-pointer text-white'>Search</button>
+          <button className='font-pop font-semibold text-sm leading-5 py-3.75 px-6 bg-primary active:bg-green-500 rounded-tr-md rounded-br-md cursor-pointer text-white'>Search</button>
         </div>
         {/* search ends here */}
 
@@ -38,8 +38,8 @@ const SearchBar = () => {
             <HiOutlineShoppingBag className='w-8 h-8' />
           </div>
           <div className='flex flex-col'>
-            <span className='font-pop text-[12px] text-gray-700'>Shopping cart:</span>
-            <span className='font-pop text-[14px] text-gray-900 font-medium'>$57.00</span>
+            <span className='font-pop font-normal text-sm leading-4.25 text-[#4D4D4D]'>Shopping cart:</span>
+            <span className='font-pop text-sm text-[#1A1A1A] font-medium'>$57.00</span>
           </div>
         </div>
         {/* carts ends here */}
