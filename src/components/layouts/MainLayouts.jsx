@@ -4,6 +4,7 @@ import TopBar from '../TopBar'
 import SearchBar from '../SearchBar'
 import NavBar from '../NavBar'
 import Footer from '../Footer/Footer'
+import FooterTop from '../Footer/FooterTop'
 
 const MainLayouts = () => {
   return (
@@ -12,6 +13,7 @@ const MainLayouts = () => {
       <SearchBar />
       <NavBar />
       <Outlet />
+      <FooterTop />
       <Footer />
     </>
   )

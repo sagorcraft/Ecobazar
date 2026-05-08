@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <Container>
-        <div className=' bg-gry h-[500px]'>Home</div>
+        <div className=' bg-badgetwo h-[500px]'>Home</div>
       </Container>
     </>
   )
