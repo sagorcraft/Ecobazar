@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from './layouts/Container'
-import Logo from '../assets/Logo.webp'
+import Logo from '../assets/images/Logo.webp'
 import { RiSearchLine } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
@@ -13,7 +13,7 @@ const SearchBar = () => {
         <div className='flex justify-center items-center'>
           <img 
             src={Logo} 
-            alt="logo" 
+            alt="Ecobazar_logo" 
             fetchpriority="high"
           />
         </div>

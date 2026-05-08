@@ -1,9 +1,12 @@
 import React from 'react'
+import Container from '../components/layouts/Container'
 
 const Home = () => {
   return (
     <>
-      <h1>Home</h1>
+      <Container>
+        <div className=' bg-gry h-[500px]'>Home</div>
+      </Container>
     </>
   )
 }
