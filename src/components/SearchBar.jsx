@@ -4,6 +4,7 @@ import Logo from '../assets/images/Logo.webp'
 import { RiSearchLine } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { Link } from 'react-router';
 
 const SearchBar = () => {
   return (
@@ -11,11 +12,13 @@ const SearchBar = () => {
       {/* logo start here */}
       <div className='flex justify-between'>
         <div className='flex justify-center items-center'>
-          <img 
-            src={Logo} 
-            alt="Ecobazar_logo" 
-            fetchpriority="high"
-          />
+          <Link to='/'>
+            <img 
+              src={Logo} 
+              alt="Ecobazar_logo" 
+              fetchpriority="high"
+            />
+          </Link>
         </div>
         {/* logo ends here */}
 
