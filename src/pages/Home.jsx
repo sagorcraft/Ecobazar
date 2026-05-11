@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <Container>
-        <div className=' bg-badgetwo h-[500px]'>Home</div>
+        <div className='w-full bg-badgetwo h-[500px] text-center leading-[500px] text-9xl'>Home...</div>
       </Container>
     </>
   )
