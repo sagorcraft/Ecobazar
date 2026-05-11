@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../layouts/Container'
-import { RiSearchLine } from 'react-icons/ri'
+import { MdOutlineMail } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
@@ -13,14 +13,14 @@ const FooterTop = () => {
       <Container>
         <div className='flex justify-between'>
           <div>
-            <h5 className='font-pop font-semibold text-[24px]'>Subcribe our Newsletter</h5>
-            <p className='max-w-[405px] font-pop font-sm text-[14px] text-[#999999] mt-1'>Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna.</p>
+            <h5 className='font-pop font-semibold text-[24px]'>Subscribe our Newsletter</h5>
+            <p className='max-w-[405px] font-pop font-normal text-sm text-[#999999] mt-1'>Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna.</p>
           </div>
 
           <div className='flex items-center'>
           {/* Newsleter subscription start here */}
             <div className='relative flex items-center'>
-              <RiSearchLine className='absolute left-4 text-[20px] text-[#808080]' />
+              <MdOutlineMail className='absolute left-4 text-[20px] text-[#808080]' />
               <input 
                 className='border border-[#808080] pr-36 w-[492px] py-3 pl-11 placeholder:text-[#808080] placeholder:text-sm placeholder:font-pop placeholder:font-normal rounded-full bg-white'
                 type="text"  

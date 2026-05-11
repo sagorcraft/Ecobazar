@@ -6,20 +6,28 @@ import { useLocation } from 'react-router';
 
 const Breadcrumb = () => {
   let pageName = useLocation()
-  let arr = pageName.pathname.split('/')
+  let arr = pageName.pathname.split('/').filter(item => item !== '');
   console.log(pageName)
+
+
   return (
-    <div style={{ background: `url(${BreadCrumbsBanner})` }}>
+    <div className='bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url(${BreadCrumbsBanner})`}}>
       <Container>
-        <div className='flex items-center gap-2 py-5'>
+        <div className='flex items-center gap-2 py-12'>
           <MdOutlineHome className='text-[#808080] text-2xl' />
-          {arr.map((item, index) => {
-            if (item !== '') {
-              return <span key={index} className='font-pop text-sm text-[#808080] hover:text-primary'>
+          {/* Home icon er por separator */}
+          {arr.length > 0 && (
+            <span className='text-[#808080]'> {/* {"/".replace("/", " > ")} */} &gt; </span>
+          )}
+          {arr.map((item, index) => (
+            <span key={index} className='font-pop text-sm text-[#808080] hover:text-primary'>
                 {item.charAt(0).toUpperCase() + item.slice(1)}
+                {index < arr.length - 1 && 
+                  <span className=' text-[#808080]'>
+                    {/* {"/".replace("/", " > ")} */} &gt;
+                  </span>}
               </span>
-            }
-          })}
+          ))}
         </div>
       </Container>
     </div>
