@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import MainLayouts from "./components/layouts/MainLayouts";
+import Forgot from "./pages/Forgot";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot" element={<Forgot />} />
         </Route>
       </Routes>
     </>

@@ -7,7 +7,6 @@ import { useLocation } from 'react-router';
 const Breadcrumb = () => {
   let pageName = useLocation()
   let arr = pageName.pathname.split('/').filter(item => item !== '');
-  console.log(pageName)
 
 
   return (
@@ -17,15 +16,13 @@ const Breadcrumb = () => {
           <MdOutlineHome className='text-[#808080] text-2xl' />
           {/* Home icon er por separator */}
           {arr.length > 0 && (
-            <span className='text-[#808080]'> {/* {"/".replace("/", " > ")} */} &gt; </span>
+            <span className='text-[#808080]'> &gt; </span>
           )}
           {arr.map((item, index) => (
             <span key={index} className='font-pop text-sm text-[#808080] hover:text-primary'>
                 {item.charAt(0).toUpperCase() + item.slice(1)}
-                {index < arr.length - 1 && 
-                  <span className=' text-[#808080]'>
-                    {/* {"/".replace("/", " > ")} */} &gt;
-                  </span>}
+                {index !== arr.length - 1 && 
+                  <span className=' text-[#808080]'> &gt; </span>}
               </span>
           ))}
         </div>
