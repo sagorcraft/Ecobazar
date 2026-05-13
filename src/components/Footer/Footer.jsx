@@ -21,37 +21,37 @@ const Footer = () => {
           <div>
             <h5 className='font-pop font-semibold text-[16px] mb-5'>My Account</h5>
             <ul className='font-pop font-normal text-[14px] text-[#999999] gap-3 flex flex-col'>
-              <li className='hover:text-white leading-8'>My Account</li>
-              <li className='hover:text-white leading-8'>Order History</li>
-              <li className='hover:text-white leading-8'>Shoping Cart</li>
-              <li className='hover:text-white leading-8'>Wishlist</li>
+              <Link to='/my-account'><li className='hover:text-white leading-8'>My Account</li></Link>
+              <Link to='/order-history'><li className='hover:text-white leading-8'>Order History</li></Link>
+              <Link to='/shopping-cart'><li className='hover:text-white leading-8'>Shopping Cart</li></Link>
+              <Link to='/wishlist'><li className='hover:text-white leading-8'>Wishlist</li></Link>
             </ul>
           </div>
           <div>
             <h5 className='font-pop font-semibold text-[16px] mb-5'>Helps</h5>
             <ul className='font-pop font-normal text-[14px] text-[#999999] gap-3 flex flex-col'>
-              <li className='hover:text-white leading-8'>Contact</li>
-              <li className='hover:text-white leading-8'>Faqs</li>
-              <li className='hover:text-white leading-8'>Terms & Condition</li>
-              <li className='hover:text-white leading-8'>Privacy Policy</li>
+              <Link to='/contact'><li className='hover:text-white leading-8'>Contact</li></Link>
+              <Link to='/faqs'><li className='hover:text-white leading-8'>Faqs</li></Link>
+              <Link to='/terms-and-conditions'><li className='hover:text-white leading-8'>Terms & Condition</li></Link>
+              <Link to='/privacy-policy'><li className='hover:text-white leading-8'>Privacy Policy</li></Link>
             </ul>
           </div>
           <div>
             <h5 className='font-pop font-semibold text-[16px] mb-5'>Proxy</h5>
             <ul className='font-pop font-normal text-[14px] text-[#999999] gap-3 flex flex-col'>
-              <li className='hover:text-white leading-8'>About</li>
-              <li className='hover:text-white leading-8'>Shop</li>
-              <li className='hover:text-white leading-8'>Product</li>
-              <li className='hover:text-white leading-8'>Track Order</li>
+              <Link to='/about'><li className='hover:text-white leading-8'>About</li></Link>
+              <Link to='/shop'><li className='hover:text-white leading-8'>Shop</li></Link>
+              <Link to='/product'><li className='hover:text-white leading-8'>Product</li></Link>
+              <Link to='/track-order'><li className='hover:text-white leading-8'>Track Order</li></Link>
             </ul>
           </div>
           <div>
             <h5 className='font-pop font-semibold text-[16px] mb-5'>Categories</h5>
             <ul className='font-pop font-normal text-[14px] text-[#999999] gap-3 flex flex-col'>
-              <li className='hover:text-white leading-8'>Fruit & Vegetables</li>
-              <li className='hover:text-white leading-8'>Meat & Fish</li>
-              <li className='hover:text-white leading-8'>Bread & Bakery</li>
-              <li className='hover:text-white leading-8'>Beauty & Health</li>
+              <Link to='/fruit-and-vegetables'><li className='hover:text-white leading-8'>Fruit & Vegetables</li></Link>
+              <Link to='/meat-and-fish'><li className='hover:text-white leading-8'>Meat & Fish</li></Link>
+              <Link to='/bread-and-bakery'><li className='hover:text-white leading-8'>Bread & Bakery</li></Link>
+              <Link to='/beauty-and-health'><li className='hover:text-white leading-8'>Beauty & Health</li></Link>
             </ul>
           </div>
         </div>
