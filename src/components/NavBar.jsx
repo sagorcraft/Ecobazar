@@ -195,18 +195,207 @@ const NavBar = () => {
               </div>
             </li>
 
-            {/* Nav links — হাত দিতে হবে না, আগেরটাই রাখো */}
-            <li>
-              <Link to="#" className='flex items-center gap-x-1 text-[#808080] hover:text-white'>Home <FaAngleDown size={22} /></Link>
+            {/* Nav links start here */}
+
+            <li className='relative group'>
+              <Link
+                to="#"
+                className='flex items-center gap-x-1 text-[#808080] hover:text-white duration-300 py-6'
+              >
+                Home
+                <FaAngleDown
+                  size={18}
+                  className='transition-transform duration-300 group-hover:rotate-180'
+                />
+              </Link>
+
+              {/* Dropdown */}
+              <div
+                className='absolute top-full left-0 w-[180px] bg-white shadow-2xl rounded-md
+                opacity-0 invisible translate-y-3
+                group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                transition-all duration-300 z-50'
+              >
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Home One
+                </Link>
+
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Home Two
+                </Link>
+
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Home Three
+                </Link>
+              </div>
             </li>
-            <li>
-              <Link to="#" className='flex items-center gap-x-1 text-[#808080] hover:text-white'>Shop <FaAngleDown size={22} /></Link>
+            <li className='relative group'>
+              <Link
+                to="#"
+                className='flex items-center gap-x-1 text-[#808080] hover:text-white duration-300 py-6'
+              >
+                Shop
+                <FaAngleDown
+                  size={18}
+                  className='transition-transform duration-300 group-hover:rotate-180'
+                />
+              </Link>
+
+              {/* Dropdown */}
+              <div
+                className='absolute top-full left-0 w-[180px] bg-white shadow-2xl rounded-md
+                opacity-0 invisible translate-y-3
+                group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                transition-all duration-300 z-50'
+              >
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Shop Grid
+                </Link>
+
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Shop List
+                </Link>
+
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Product Details
+                </Link>
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Cart
+                </Link>
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Checkout
+                </Link>
+              </div>
             </li>
-            <li>
-              <Link to="#" className='flex items-center gap-x-1 text-[#808080] hover:text-white'>Pages <FaAngleDown size={22} /></Link>
+            <li className='relative group'>
+              <Link
+                to="#"
+                className='flex items-center gap-x-1 text-[#808080] hover:text-white duration-300 py-6'
+              >
+                Pages
+                <FaAngleDown
+                  size={18}
+                  className='transition-transform duration-300 group-hover:rotate-180'
+                />
+              </Link>
+
+              {/* Dropdown */}
+              <div
+                className='absolute top-full left-0 w-[180px] bg-white shadow-2xl rounded-md
+                opacity-0 invisible translate-y-3
+                group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                transition-all duration-300 z-50'
+              >
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  About Us
+                </Link>
+
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  FAQ
+                </Link>
+
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  My Account
+                </Link>
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Login
+                </Link>
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Register
+                </Link>
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  404 Page
+                </Link>
+              </div>
             </li>
-            <li>
-              <Link to="#" className='flex items-center gap-x-1 text-[#808080] hover:text-white'>Blog <FaAngleDown size={22} /></Link>
+            <li className='relative group'>
+              <Link
+                to="#"
+                className='flex items-center gap-x-1 text-[#808080] hover:text-white duration-300 py-6'
+              >
+                Blog
+                <FaAngleDown
+                  size={18}
+                  className='transition-transform duration-300 group-hover:rotate-180'
+                />
+              </Link>
+
+              {/* Dropdown */}
+              <div
+                className='absolute top-full left-0 w-[180px] bg-white shadow-2xl rounded-md
+                opacity-0 invisible translate-y-3
+                group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                transition-all duration-300 z-50'
+              >
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Blog Grid
+                </Link>
+
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Blog Details
+                </Link>
+
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Recipes
+                </Link>
+                <Link
+                  to="#"
+                  className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'
+                >
+                  Food Tips
+                </Link>
+              </div>
             </li>
             <li>
               <Link to="#" className='flex items-center gap-x-1 text-[#808080] hover:text-white'>About Us</Link>

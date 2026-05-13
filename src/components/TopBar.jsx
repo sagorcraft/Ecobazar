@@ -52,9 +52,9 @@ const TopBar = () => {
             </div>
             {/* sign in & sign Up here */}
             <div className='flex items-center relative after:w-[1px] after:h-6 after:bg-[#E6E6E6] after:content-[""] after:absolute after:top-[2px] after:left-[-10px]'>
-              <Link to="/login" className='font-pop font-normal text-sm text-[#808080] mr-1'>Sign In</Link> 
+              <Link to="/login" className='font-pop font-normal text-sm text-[#808080] mr-1 hover:text-primary'>Sign In</Link> 
               <span>/</span> 
-              <Link to="/registration" className='font-pop font-normal text-sm text-[#808080] ml-1'>Sign Up</Link>
+              <Link to="/registration" className='font-pop font-normal text-sm text-[#808080] ml-1 hover:text-primary'>Sign Up</Link>
             </div>
           </div>
         </div>
