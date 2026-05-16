@@ -28,7 +28,7 @@ const CATEGORIES = [
     { id: 'cooking',   label: 'Cooking Essentials', subs: ['Spices & Herbs', 'Cooking Oils', 'Sauces', 'Rice & Flour'] },
   ]
 
-const TOP_CATEGORIES = [
+const All_CATEGORIES = [
     { icon: <TbApple size={20} />,    label: 'Fresh Fruits' },
     { icon: <TbCarrot size={20} />,   label: 'Vegetables' },
     { icon: <TbFish size={20} />,     label: 'River Fish' },
@@ -53,18 +53,13 @@ const NavBar = () => {
   
   return (
   <>
-    {/* Overlay */}
-    <div className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300
-      ${sidebarOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
-    />
-
     {/* Sidebar */}
     <div
       ref={sidebarRef}
       onMouseLeave={() => setActiveId(null)}
-      className={`fixed top-0 left-0 h-full z-50 flex bg-white shadow-2xl
-        transition-transform duration-[330ms] ease-[cubic-bezier(.4,0,.2,1)]
-        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+      className={`fixed h-full top-0 left-0 z-50 flex bg-white shadow-2xl rounded-2xl overflow-hidden
+      transition-all duration-[330ms] ease-[cubic-bezier(.4,0,.2,1)]
+      ${sidebarOpen ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0 pointer-events-none'}`}
     >
       {/* Left panel */}
       <div className="w-[260px] flex flex-col border-r border-gray-200 flex-shrink-0">
@@ -111,7 +106,7 @@ const NavBar = () => {
                 </span>
                 {cat.label}
               </div>
-              <FaAngleRight className="text-xs opacity-60" />
+              <FaAngleRight className="text-sm opacity-60" />
             </div>
           ))}
         </div>
@@ -119,17 +114,17 @@ const NavBar = () => {
 
       {/* Right panel */}
       {activeId && (
-        <div className="flex-1 flex flex-col bg-white">
+        <div className="flex flex-col bg-white">
           <div className="px-5 py-[15px] text-[11px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-100">
             {activeCat?.label}
           </div>
-          <div className="flex-1 overflow-y-auto">
+          <div>
             {activeCat?.subs.map((sub, i) => (
               <Link
                 key={i}
                 to="#"
-                className="block px-10 py-[13px] text-[13px] text-gray-700
-                  border-b border-gray-50 hover:text-green-600 hover:font-semibold transition-colors"
+                className="block px-10 py-[13px] text-sm text-gray-700
+                  border-b border-gray-50 hover:bg-primary hover:text-white hover:font-semibold transition-colors"
               >
                 {sub}
               </Link>
@@ -161,14 +156,11 @@ const NavBar = () => {
               </span>
 
               {/* Dropdown */}
-              <div className='absolute top-full left-0 w-[280px] bg-white text-gray-800 shadow-2xl z-30
+              <div className='absolute top-full left-0 w-[275px] bg-white text-gray-800 shadow-2xl z-30
                 opacity-0 invisible -translate-y-1.5
                 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                 transition-all duration-200'>
-                <div className='bg-[#1f2937] text-white px-[18px] py-[13px] text-[13px] font-bold flex justify-between items-center'>
-                  Top Categories <FaAngleDown size={11} />
-                </div>
-                {TOP_CATEGORIES.map((item, i) => (
+                {All_CATEGORIES.map((item, i) => (
                   <Link
                     key={i}
                     to="#"
