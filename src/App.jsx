@@ -4,6 +4,7 @@ import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import MainLayouts from "./components/layouts/MainLayouts";
 import Forgot from "./pages/Forgot";
+import Reset from "./pages/Reset";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot" element={<Forgot />} />
+          <Route path="/reset-password" element={<Reset />} />
         </Route>
       </Routes>
     </>
