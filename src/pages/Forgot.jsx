@@ -16,16 +16,16 @@ const Forgot = () => {
         </p>
       </div>
 
-      <form className='mt-8'>
-        <div className='relative'>
-          <input
-            type='email'
-            placeholder='Enter your email'
-            className='w-full border border-gray-300 py-3 pl-12 pr-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-pop text-base'
-          />
 
-          <MdOutlineEmail className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-2xl' />
-        </div>
+      <div className='relative mt-8'>
+        <input
+          type='email'
+          placeholder='Enter your email'
+          className='w-full border border-gray-300 py-3 pl-12 pr-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-pop text-base'
+        />
+
+        <MdOutlineEmail className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-2xl' />
+      </div>
 
         <Link to='/otp'>
           <button
@@ -35,8 +35,6 @@ const Forgot = () => {
             Submit
           </button>
         </Link>
-
-      </form>
 
       <div className='mt-6 text-center'>
         <Link
