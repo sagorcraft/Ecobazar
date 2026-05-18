@@ -11,7 +11,7 @@ const FooterTop = () => {
   return (
     <div className='bg-gry py-10'>
       <Container>
-        <div className='flex justify-between'>
+        <div className='flex justify-between items-center'>
           <div>
             <h5 className='font-pop font-semibold text-[24px]'>Subscribe our Newsletter</h5>
             <p className='max-w-[405px] font-pop font-normal text-sm text-[#999999] mt-1'>Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna.</p>
@@ -31,7 +31,7 @@ const FooterTop = () => {
             {/* Newsleter subscription ends here */}
 
             {/* social media icons start here */}
-            <div className='flex gap-2 ml-4'>
+            <div className='flex gap-2 ml-10'>
               <div className='w-10 h-10 rounded-full flex justify-center items-center hover:bg-primary hover:text-white cursor-pointer text-[#4D4D4D]'>
                 <Link to='https://www.facebook.com/' target='_blank'>
                   <FaFacebookF size={22} />

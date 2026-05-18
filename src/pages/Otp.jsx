@@ -26,7 +26,7 @@ const Otp = () => {
             <MdOutlineEmail className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-2xl' />
           </div>
           <p className='text-sm text-gray-500 mt-2 font-pop'>
-              Didn't receive the code? <Link to='/resend-otp' className='text-primary hover:underline'>Resend</Link>
+              Didn't receive the code? <Link to='/otp' className='text-primary hover:underline'>Resend</Link>
             </p>
     
           <Link to='/reset-password'>
