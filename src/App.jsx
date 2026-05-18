@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import MainLayouts from "./components/layouts/MainLayouts";
 import Forgot from "./pages/Forgot";
 import Reset from "./pages/Reset";
+import Otp from "./pages/Otp";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot" element={<Forgot />} />
+          <Route path="/otp" element={<Otp />} />
           <Route path="/reset-password" element={<Reset />} />
         </Route>
       </Routes>

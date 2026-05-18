@@ -18,7 +18,7 @@ const Registration = () => {
             className='w-full border border-[#808080] py-3 px-4 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md font-pop font-normal text-base' 
           />
           <div className='absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 text-xl' onClick={() => setShowPassword(!showPassword)}>
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
+            {showPassword ? <FaEye /> : <FaEyeSlash />}
           </div>
         </div>
 
@@ -29,7 +29,7 @@ const Registration = () => {
             className='w-full border border-[#808080] py-3 px-4 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md font-pop font-normal text-base' 
           />
           <div className='absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 text-xl' onClick={() => setConfirmPassword(!confirmPassword)}>
-            {confirmPassword ? <FaEyeSlash /> : <FaEye />}
+            {confirmPassword ? <FaEye /> : <FaEyeSlash />}
           </div>
         </div>
 

@@ -27,12 +27,14 @@ const Forgot = () => {
           <MdOutlineEmail className='absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-2xl' />
         </div>
 
-        <button
-          type='submit'
-          className='w-full bg-primary text-white py-3 rounded-full mt-6 font-pop font-semibold hover:bg-green-500 duration-300 cursor-pointer'
-        >
-          Reset Password
-        </button>
+        <Link to='/otp'>
+          <button
+            type='submit'
+            className='w-full bg-primary text-white py-3 rounded-full mt-6 font-pop font-semibold hover:bg-green-500 duration-300 cursor-pointer'
+          >
+            Submit
+          </button>
+        </Link>
 
       </form>
 

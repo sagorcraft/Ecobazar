@@ -16,9 +16,11 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 1000,
-    autoplaySpeed: 1500,
-    cssEase: "linear",
+    speed: 600,
+    autoplaySpeed: 3000,
+    cssEase: "ease-in-out",
+    pauseOnHover: false,
+    fade: true,
   };
   return (
     <Container>
@@ -27,13 +29,13 @@ const Banner = () => {
           {/* left side slider start */}
           <Slider {...settings}>
             <div>
-              <img src={BannerOne} alt="Banner One" className='w-full rounded-xl' />
+              <img src={BannerOne} alt="Banner One" className='w-full rounded-xl block' />
             </div>
             <div>
-              <img src={BannerTwo} alt="Banner One" className='w-full rounded-xl' />
+              <img src={BannerTwo} alt="Banner One" className='w-full rounded-xl block' />
             </div>
             <div>
-              <img src={BannerThree} alt="Banner One" className='w-full rounded-xl' />
+              <img src={BannerThree} alt="Banner One" className='w-full rounded-xl block' />
             </div>
           </Slider>
         </div>
@@ -41,10 +43,10 @@ const Banner = () => {
         {/* right side banner item start */}
         <div className='flex flex-col'>
           <div className='mb-6'>
-            <img src={BannerRsOne} alt="Banner Right One" />
+            <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
           </div>
           <div>
-            <img src={BannerRsTwo} alt="Banner Right Two" />
+            <img src={BannerRsTwo} alt="Banner Right Two" className='w-full rounded-xl block' />
           </div>
         </div>
       </div>
