@@ -7,7 +7,10 @@ import BannerOne from '../../assets/images/banner-one.webp'
 import BannerTwo from '../../assets/images/banner-two.webp'
 import BannerThree from '../../assets/images/banner-three.webp'
 import BannerRsOne from '../../assets/images/bannerRs-one.webp'
+import BannerRsFive from '../../assets/images/bannerRs-five.webp'
 import BannerRsTwo from '../../assets/images/bannerRs-two.webp'
+import BannerRsThree from '../../assets/images/bannerRs-three.webp'
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -70,18 +73,15 @@ const Banner = () => {
                 <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
               </SwiperSlide>
               <SwiperSlide>
-                <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
+                <img src={BannerRsTwo} alt="Banner Right Two" className='w-full rounded-xl block' />
               </SwiperSlide>
               <SwiperSlide>
-                <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
+                <img src={BannerRsThree} alt="Banner Right Three" className='w-full rounded-xl block' />
               </SwiperSlide>
             </Swiper>
           </div>
           <div className='mt-6'>
-            <img src={BannerRsTwo} alt="Banner Right Two" className='w-full rounded-xl block' />
+            <img src={BannerRsFive} alt="Banner Right Five" className='w-full rounded-xl block' />
           </div>
         </div>
       </div>
