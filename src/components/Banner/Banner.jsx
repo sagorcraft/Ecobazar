@@ -8,6 +8,13 @@ import BannerTwo from '../../assets/images/banner-two.webp'
 import BannerThree from '../../assets/images/banner-three.webp'
 import BannerRsOne from '../../assets/images/bannerRs-one.webp'
 import BannerRsTwo from '../../assets/images/bannerRs-two.webp'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 const Banner = () => {
   let settings = {
@@ -41,11 +48,39 @@ const Banner = () => {
         </div>
 
         {/* right side banner item start */}
-        <div className='flex flex-col'>
-          <div className='mb-6'>
-            <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
-          </div>
+        <div className='flex flex-col max-w-[423px]'>
           <div>
+            <Swiper
+              spaceBetween={0}
+              slidesPerView={1}
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+              direction={'vertical'}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination, Autoplay]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={BannerRsOne} alt="Banner Right One" className='w-full rounded-xl block' />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+          <div className='mt-6'>
             <img src={BannerRsTwo} alt="Banner Right Two" className='w-full rounded-xl block' />
           </div>
         </div>
