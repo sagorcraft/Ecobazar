@@ -6,6 +6,7 @@ import MainLayouts from "./components/layouts/MainLayouts";
 import Forgot from "./pages/Forgot";
 import Reset from "./pages/Reset";
 import Otp from "./pages/Otp";
+import Category from "./pages/Category";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/otp" element={<Otp />} />
           <Route path="/reset-password" element={<Reset />} />
+          <Route path="/cat" element={<Category />} />
         </Route>
       </Routes>
     </>

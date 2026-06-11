@@ -7,7 +7,7 @@ import { GoPackage } from "react-icons/go";
 
 const Featured = () => {
   return (
-    <div className="pt-8 pb-16 items-center">
+    <div className="pt-8 items-center">
       <Container>
         <div className='flex justify-between shadow-2xl  py-[40px] px-[40px]'>
           <div className='flex items-center'>
