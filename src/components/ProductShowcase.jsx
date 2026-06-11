@@ -7,7 +7,7 @@ import { FaStarHalfAlt } from "react-icons/fa";
 
 
 
-const Productshowcase = ({ title, allData }) => {
+const ProductShowcase = ({ title, allData }) => {
 
   function renderStars(rating) {
     const stars = [];
@@ -59,4 +59,4 @@ const Productshowcase = ({ title, allData }) => {
   )
 }
 
-export default Productshowcase
+export default ProductShowcase

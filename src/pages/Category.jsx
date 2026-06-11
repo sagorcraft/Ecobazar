@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Productshowcase from '../components/Productshowcase'
+import ProductShowcase from '../components/ProductShowcase'
 
 const Category = () => {
   let [proData, setProData] = useState([])
@@ -13,7 +13,7 @@ const Category = () => {
       allPro()
     }, [])
   return (
-    <Productshowcase allData={proData} />
+    <ProductShowcase allData={proData} />
   )
 }
 
