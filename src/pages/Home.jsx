@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Container from '../components/layouts/Container'
 import Banner from '../components/Banner/Banner'
 import Featured from '../components/Featured'
-import Productshowcase from '../components/Productshowcase'
+import ProductShowcase from '../components/ProductShowcase'
 import axios from "axios"
 
 const Home = () => {
@@ -29,8 +29,8 @@ const Home = () => {
     <>
       <Banner />
       <Featured />
-      <Productshowcase title="Popular Categories" allData={catData} />
-      <Productshowcase title="Popular Products" allData={proData} />
+      <ProductShowcase title="Popular Categories" allData={catData} />
+      <ProductShowcase title="Popular Products" allData={proData} />
     </>
   )
 }
