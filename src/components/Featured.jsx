@@ -14,7 +14,7 @@ const Featured = () => {
               <TbTruckDelivery  className='text-[40px] text-[#00B207]' />
           </div>
           <div>
-              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A]'>Free Shipping</h2>
+              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>Free Shipping</h2>
             <p className='font-poppins font-normal text-[15px] text-[#999999]'> Free shipping on all your order</p>
           </div>
         </div>
@@ -24,7 +24,7 @@ const Featured = () => {
               <TfiHeadphoneAlt className='text-[40px] text-[#00B207]' />
           </div>
           <div>
-              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A]'>Customer Support 24/7</h2>
+              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>Customer Support 24/7</h2>
             <p className='font-poppins font-normal text-[15px] text-[#999999]'>Instant access to Support</p>
           </div>
         </div>
@@ -34,7 +34,7 @@ const Featured = () => {
               <RiShoppingBag4Line className='text-[40px] text-[#00B207]' />
           </div>
           <div>
-              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A]'>100% Secure Payment</h2>
+              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>100% Secure Payment</h2>
             <p className='font-poppins font-normal text-[15px] text-[#999999]'>We ensure your money is save</p>
           </div>
         </div>
@@ -44,7 +44,7 @@ const Featured = () => {
               <GoPackage className='text-[40px] text-[#00B207]' />
           </div>
           <div>
-              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A]'>Money-Back Guarantee</h2>
+              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>Money-Back Guarantee</h2>
             <p className='font-poppins font-normal text-[15px] text-[#999999]'>30 Days Money-Back Guarantee</p>
           </div>
         </div> 
