@@ -4,7 +4,7 @@ import { HiArrowSmallRight } from "react-icons/hi2";
 import { Link } from "react-router";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { FaHeart, FaEye, FaShoppingBag } from "react-icons/fa";
-import CountdownTimer from "./CountdownTimer";
+import CountdownTimer from "./CountdownTimer.jsx";
 
 const ProductShowcase = ({ title, allData, viewAllLink, type }) => {
   const [hoveredId, setHoveredId] = useState(null);
