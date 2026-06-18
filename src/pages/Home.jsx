@@ -5,6 +5,7 @@ import Featured from '../components/Featured'
 import ProductShowcase from '../components/ProductShowcase'
 import axios from "axios"
 import { categories } from '../Data/categories'
+import Bannar from '../components/Bannar'
 
 const Home = () => {
   let [proData, setProData] = useState([])
@@ -33,6 +34,7 @@ const Home = () => {
         allData={proData.slice(0, 10)} 
         viewAllLink="/product"
       />
+      <Bannar />
       <ProductShowcase 
         type="hotdeal"
         title="Hot Deals" 
