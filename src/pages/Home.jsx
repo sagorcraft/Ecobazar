@@ -8,6 +8,7 @@ import { categories } from '../Data/categories'
 import Bannar from '../components/Bannar'
 import DiscountBanner from '../components/DiscountBanner'
 import Blog from '../components/Blog'
+import Testimonial from '../components/Testimonial'
 
 const Home = () => {
   let [proData, setProData] = useState([])
@@ -51,6 +52,7 @@ const Home = () => {
         viewAllLink="/product"
       />
       <Blog />
+      <Testimonial />
     </>
   )
 }
