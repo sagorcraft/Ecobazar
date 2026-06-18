@@ -12,7 +12,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 const Blog = () => {
   return (
     <Container>
-        <div className='mt-15 mx-auto '>
+        <div className='my-15 mx-auto '>
             <h2 className='text-center font-pop text-[32px] text-[#1A1A1A] mb-8'>Latest News</h2>
             <div className='flex mx-auto gap-6 '>
                <div className='max-w-[442px] group'>
