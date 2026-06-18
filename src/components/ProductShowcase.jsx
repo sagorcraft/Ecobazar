@@ -35,7 +35,7 @@ const ProductShowcase = ({ title, allData, viewAllLink, type }) => {
   return (
     <div>
       <Container>
-        <div className="flex items-center justify-between pt-15 pb-8">
+        <div className="flex items-center justify-between pt-15 pb-6">
           <h2 className="font-pop font-semibold text-[32px] text-[#1A1A1A]">
             {title}
           </h2>
@@ -47,7 +47,6 @@ const ProductShowcase = ({ title, allData, viewAllLink, type }) => {
             View all <HiArrowSmallRight className="text-[24px]" />
           </Link>
         </div>
-
         <div
           className={`${
             type === "category"
@@ -99,7 +98,7 @@ const ProductShowcase = ({ title, allData, viewAllLink, type }) => {
                     src={pro.thumbnail || pro.image}
                     alt={pro.title}
                     className="w-full object-contain rounded-lg mb-3"
-                    style={{ height: "130px" }}
+                    style={{ height: "200px" }}
                   />
 
                   {type === "hotdeal" && (

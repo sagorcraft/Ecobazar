@@ -7,7 +7,7 @@ import BannarThree from '../assets/images/bannarthree.webp'
 const Bannar = () => {
   return (
     <Container>
-      <div className='flex justify-between gap-4 my-15'>
+      <div className='flex justify-between gap-4 py-15'>
         <img src={BannarOne} alt="Banner" />
         <img src={BannarTwo} alt="Banner" />
         <img src={BannarThree} alt="Banner" />

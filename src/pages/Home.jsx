@@ -6,6 +6,8 @@ import ProductShowcase from '../components/ProductShowcase'
 import axios from "axios"
 import { categories } from '../Data/categories'
 import Bannar from '../components/Bannar'
+import DiscountBanner from '../components/DiscountBanner'
+import Blog from '../components/Blog'
 
 const Home = () => {
   let [proData, setProData] = useState([])
@@ -41,6 +43,14 @@ const Home = () => {
         allData={proData.slice(0, 15)} 
         viewAllLink="/product"
       />
+      <DiscountBanner />
+      <ProductShowcase 
+        type="featured"
+        title="Featured Products" 
+        allData={proData.slice(0, 5)} 
+        viewAllLink="/product"
+      />
+      <Blog />
     </>
   )
 }
