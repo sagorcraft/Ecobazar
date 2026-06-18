@@ -103,7 +103,7 @@ const ProductShowcase = ({ title, allData, viewAllLink, type }) => {
                   />
 
                   {type === "hotdeal" && (
-                    <>
+                    <div>
                       <div
                         className="absolute top-2 right-2 flex flex-col gap-2"
                         style={{ opacity: isHovered ? 1 : 0 }}
@@ -125,7 +125,7 @@ const ProductShowcase = ({ title, allData, viewAllLink, type }) => {
                           Add To Cart
                         </button>
                       </div>
-                    </>
+                    </div>
                   )}
                 </div>
 
