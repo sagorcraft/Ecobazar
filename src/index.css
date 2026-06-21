@@ -18,6 +18,141 @@
 
 }
 
-.mySwiper {
+
+
+/* ===leftBannerSwiper css==== */
+.prev-arrow{
+  background:white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top:50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 111;
+}
+.next-arrow{
+  background:white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top:50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 111;
+}
+.swiper-button-disabled{
+  background: gray;
+  cursor: not-allowed;
+}
+.swiper-pagination-bullet{
+  width: 10px;
+  height: 10px;
+  background: #E6E6E6;
+  display:inline-block;
+  margin-left: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.swiper-pagination-bullet-active{
+  background: #00B207;
+}
+.swiper-pagination{
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+.swiper-scrollbar{
+  opacity: 0;
+  transition-duration: 400ms;
+  height: 10px;
+  background: rgb(83, 105, 38);
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  border-radius:50px;
+}
+.swiper-scrollbar-drag {
+  background: rgb(182, 219, 193);
+  height: 10px !important;
+  border-radius: 50px;
+}
+
+/* .next-arrowone:hover{
+  background:#00B207;
+}
+.prev-arrowone:hover{
+  background: #00B207;
+}
+.next-arrowone,
+.prev-arrowone{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  z-index: 111;
+  cursor: pointer;
+  border: 1px solid #E6E6E6;
+  transition: all .3s ease;
+}
+
+.prev-arrowone{
+  right: 60px;
+}
+
+.next-arrowone{
+  right: 0;
+}
+
+.next-arrowone:hover,
+.prev-arrowone:hover{
+  background: #00B207;
+  color: white;
+}
+
+.next-arrowone:hover svg,
+.prev-arrowone:hover svg{
+  color: white;
+} */
+
+.swiper-button-disabled{
+  background: #E6E6E6 !important;
+  color: #999 !important;
+  cursor: not-allowed;
+}
+
+/* ===rightBannerSwiper css==== */
+.rightBannerSwiper {
   height: 288px;
+}
+
+.rightBannerSwiper .swiper-pagination {
+  right: 10px !important;
+  left: auto !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rightBannerSwiper .swiper-pagination-bullet {
+  margin: 0 !important;
 }
