@@ -9,6 +9,7 @@ import Bannar from '../components/Bannar'
 import DiscountBanner from '../components/DiscountBanner'
 import Blog from '../components/Blog'
 import Testimonial from '../components/Testimonial'
+import CompanyName from '../components/CompanyName'
 
 const Home = () => {
   let [proData, setProData] = useState([])
@@ -53,6 +54,7 @@ const Home = () => {
       />
       <Blog />
       <Testimonial />
+      <CompanyName />
     </>
   )
 }
