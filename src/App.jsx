@@ -9,6 +9,7 @@ import Otp from "./pages/Otp";
 import Category from "./pages/Category";
 import Products from "./pages/Products";
 import Error from "./pages/Error";
+import Faq from "./pages/Faq";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/cat" element={<Category />} />
           <Route path="/product" element={<Products />} />
           <Route path="/error" element={<Error />} />
+          <Route path="/faq" element={<Faq />} />
         </Route>
       </Routes>
     </>

@@ -236,7 +236,7 @@ const NavBar = () => {
                   group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                   transition-all duration-300 z-50'>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>About Us</Link>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>FAQ</Link>
+                  <Link to="/faq" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>FAQ</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>My Account</Link>
                   <Link to="/login" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Login</Link>
                   <Link to="/registration" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Register</Link>
