@@ -8,6 +8,7 @@ import Reset from "./pages/Reset";
 import Otp from "./pages/Otp";
 import Category from "./pages/Category";
 import Products from "./pages/Products";
+import Error from "./pages/Error";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/reset-password" element={<Reset />} />
           <Route path="/cat" element={<Category />} />
           <Route path="/product" element={<Products />} />
+          <Route path="/error" element={<Error />} />
         </Route>
       </Routes>
     </>

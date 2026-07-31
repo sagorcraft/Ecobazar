@@ -238,9 +238,9 @@ const NavBar = () => {
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>About Us</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>FAQ</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>My Account</Link>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Login</Link>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Register</Link>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>404 Page</Link>
+                  <Link to="/login" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Login</Link>
+                  <Link to="/registration" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Register</Link>
+                  <Link to="/error" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>404 Page</Link>
                 </div>
               </li>
 
