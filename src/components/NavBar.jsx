@@ -221,7 +221,7 @@ const NavBar = () => {
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Shop List</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Product Details</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Cart</Link>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Checkout</Link>
+                  <Link to="/checkout" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Checkout</Link>
                 </div>
               </li>
 

@@ -10,6 +10,7 @@ import Category from "./pages/Category";
 import Products from "./pages/Products";
 import Error from "./pages/Error";
 import Faq from "./pages/Faq";
+import CheckOut from "./pages/CheckOut";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/reset-password" element={<Reset />} />
           <Route path="/cat" element={<Category />} />
           <Route path="/product" element={<Products />} />
+          <Route path="/checkout" element={<CheckOut />} />
           <Route path="/error" element={<Error />} />
           <Route path="/faq" element={<Faq />} />
         </Route>
