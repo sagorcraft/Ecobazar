@@ -59,17 +59,17 @@ const CheckOut = () => {
 
   return (
     <section>
-      <Toaster position="top-right" />
+      <Toaster position="top-center" />
 
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 py-10 font-pop">
           {/* LEFT: Billing form */}
           <form onSubmit={handleSubmit} noValidate className="space-y-6">
-            <h2 className="text-xl font-semibold text-gray-900">Billing Information</h2>
+            <h2 className="font-pop text-[24px] font-medium text-[#1A1A1A]">Billing Information</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm text-gray-700 mb-1.5">First name</label>
+                <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">First name</label>
                 <input
                   type="text"
                   name="firstName"
@@ -81,7 +81,7 @@ const CheckOut = () => {
                 {errors.firstName && <p className="text-xs text-red-500 mt-1">{errors.firstName}</p>}
               </div>
               <div>
-                <label className="block text-sm text-gray-700 mb-1.5">Last name</label>
+                <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">Last name</label>
                 <input
                   type="text"
                   name="lastName"
@@ -93,8 +93,8 @@ const CheckOut = () => {
                 {errors.lastName && <p className="text-xs text-red-500 mt-1">{errors.lastName}</p>}
               </div>
               <div>
-                <label className="block text-sm text-gray-700 mb-1.5">
-                  Company Name <span className="text-gray-400 text-xs">(optional)</span>
+                <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">
+                  Company Name <span className="font-pop font-normal text-sm text-[#808080]">(optional)</span>
                 </label>
                 <input
                   type="text"
@@ -108,7 +108,7 @@ const CheckOut = () => {
             </div>
 
             <div>
-              <label className="block text-sm text-gray-700 mb-1.5">Street Address</label>
+              <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">Street Address</label>
               <input
                 type="text"
                 name="streetAddress"
@@ -118,13 +118,13 @@ const CheckOut = () => {
                 className={inputClass('streetAddress')}
               />
               {errors.streetAddress && (
-                <p className="text-xs text-red-500 mt-1">{errors.streetAddress}</p>
+                <p className="text-sm text-red-500 mt-1">{errors.streetAddress}</p>
               )}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm text-gray-700 mb-1.5">Country / Region</label>
+                <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">Country / Region</label>
                 <select
                   name="country"
                   value={form.country}
@@ -139,7 +139,7 @@ const CheckOut = () => {
                 {errors.country && <p className="text-xs text-red-500 mt-1">{errors.country}</p>}
               </div>
               <div>
-                <label className="block text-sm text-gray-700 mb-1.5">States</label>
+                <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">States</label>
                 <select
                   name="state"
                   value={form.state}
@@ -149,11 +149,12 @@ const CheckOut = () => {
                   <option value="">Selects</option>
                   <option value="dhaka">Dhaka</option>
                   <option value="chattogram">Chattogram</option>
+                  <option value="dinajpur">Dinajpur</option>
                 </select>
                 {errors.state && <p className="text-xs text-red-500 mt-1">{errors.state}</p>}
               </div>
               <div>
-                <label className="block text-sm text-gray-700 mb-1.5">Zip Code</label>
+                <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">Zip Code</label>
                 <input
                   type="text"
                   name="zipCode"
@@ -162,13 +163,13 @@ const CheckOut = () => {
                   placeholder="Zip Code"
                   className={inputClass('zipCode')}
                 />
-                {errors.zipCode && <p className="text-xs text-red-500 mt-1">{errors.zipCode}</p>}
+                {errors.zipCode && <p className="text-sm text-red-500 mt-1">{errors.zipCode}</p>}
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm text-gray-700 mb-1.5">Email</label>
+                <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -180,7 +181,7 @@ const CheckOut = () => {
                 {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
               </div>
               <div>
-                <label className="block text-sm text-gray-700 mb-1.5">Phone</label>
+                <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">Phone</label>
                 <input
                   type="tel"
                   name="phone"
@@ -193,7 +194,7 @@ const CheckOut = () => {
               </div>
             </div>
 
-            <label className="flex items-center gap-2 text-sm text-gray-700">
+            <label className="flex items-center gap-2 font-pop font-normal text-sm text-[#1A1A1A]">
               <input
                 type="checkbox"
                 name="shipDifferent"
@@ -207,8 +208,10 @@ const CheckOut = () => {
             <hr className="border-gray-200" />
 
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Additional Info</h2>
-              <label className="block text-sm text-gray-700 mb-1.5">Order Notes (Optional)</label>
+              <h2 className="font-pop font-medium text-[24px] text-[#1A1A1A] mb-4">Additional Info</h2>
+              <label className="block font-pop font-normal text-sm text-[#1A1A1A] mb-1.5">Order Notes 
+                <span className="font-pop font-normal text-sm text-[#808080]">(optional)</span>
+              </label>
               <textarea
                 name="orderNotes"
                 value={form.orderNotes}
@@ -222,7 +225,7 @@ const CheckOut = () => {
 
           {/* RIGHT: Order summary */}
           <aside className="border border-gray-200 rounded-xl p-6 h-fit">
-            <h3 className="font-semibold text-gray-900 mb-4">Order Summery</h3>
+            <h3 className="font-pop font-medium text-[20px] text-[#1A1A1A] mb-4">Order Summery</h3>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -230,7 +233,7 @@ const CheckOut = () => {
                   <div className="w-10 h-10 rounded-md bg-gry flex items-center justify-center text-lg overflow-hidden">
                     <img src={GreenCapsicam} alt="Green Capsicam" className="w-full h-full object-cover" />
                   </div>
-                  <span className="text-sm text-gray-700">
+                  <span className="font-pop font-normal text-sm text-[#1A1A1A]">
                     Green Capsicum <span className="text-gray-400">x5</span>
                   </span>
                 </div>
@@ -242,7 +245,7 @@ const CheckOut = () => {
                   <div className="w-10 h-10 rounded-md bg-gry flex items-center justify-center text-lg overflow-hidden">
                     <img src={RedCapsicam} alt="Red Capsicam" className="w-full h-full object-cover" />
                   </div>
-                  <span className="text-sm text-gray-700">
+                  <span className="font-pop font-normal text-sm text-[#1A1A1A]">
                     Red Capsicum <span className="text-gray-400">x1</span>
                   </span>
                 </div>
@@ -253,11 +256,11 @@ const CheckOut = () => {
             <hr className="border-gray-200 my-4" />
 
             <div className="space-y-2 text-sm">
-              <div className="flex justify-between text-gray-600">
+              <div className="flex justify-between font-pop font-normal text-sm text-[#4D4D4D]">
                 <span>Subtotal:</span>
                 <span className="text-gray-900">$84.00</span>
               </div>
-              <div className="flex justify-between text-gray-600">
+              <div className="flex justify-between font-pop font-normal text-sm text-[#4D4D4D]">
                 <span>Shipping:</span>
                 <span className="text-gray-900">Free</span>
               </div>
@@ -265,12 +268,12 @@ const CheckOut = () => {
 
             <hr className="border-gray-200 my-4" />
 
-            <div className="flex justify-between font-semibold text-gray-900 mb-6">
+            <div className="flex justify-between font-pop font-normal text-[16px] text-[#4D4D4D] mb-6">
               <span>Total:</span>
               <span>$84.00</span>
             </div>
 
-            <h3 className="font-semibold text-gray-900 mb-3">Payment Method</h3>
+            <h3 className="font-pop font-medium text-[20px] text-[#1A1A1A] mb-3">Payment Method</h3>
             <div className="space-y-2 mb-6 text-sm text-gray-700">
               <label className="flex items-center gap-2">
                 <input
