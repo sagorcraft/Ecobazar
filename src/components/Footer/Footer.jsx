@@ -31,7 +31,7 @@ const Footer = () => {
             <h5 className='font-pop font-semibold text-[16px] mb-5'>Helps</h5>
             <ul className='font-pop font-normal text-[14px] text-[#999999] gap-3 flex flex-col'>
               <Link to='/contact'><li className='hover:text-white leading-8'>Contact</li></Link>
-              <Link to='/faqs'><li className='hover:text-white leading-8'>Faqs</li></Link>
+              <Link to='/faq'><li className='hover:text-white leading-8'>Faqs</li></Link>
               <Link to='/terms-and-conditions'><li className='hover:text-white leading-8'>Terms & Condition</li></Link>
               <Link to='/privacy-policy'><li className='hover:text-white leading-8'>Privacy Policy</li></Link>
             </ul>

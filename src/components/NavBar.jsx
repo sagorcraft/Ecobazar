@@ -265,7 +265,7 @@ const NavBar = () => {
                 <Link to="#" className='flex items-center gap-x-1 text-[#808080] hover:text-white'>About Us</Link>
               </li>
               <li>
-                <Link to="#" className='flex items-center gap-x-1 text-[#808080] hover:text-white'>Contact Us</Link>
+                <Link to="/contact" className='flex items-center gap-x-1 text-[#808080] hover:text-white'>Contact Us</Link>
               </li>
             </ul>
 
