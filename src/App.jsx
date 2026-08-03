@@ -12,6 +12,7 @@ import Error from "./pages/Error";
 import Faq from "./pages/Faq";
 import CheckOut from "./pages/CheckOut";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/cat" element={<Category />} />
           <Route path="/product" element={<Products />} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/error" element={<Error />} />
           <Route path="/faq" element={<Faq />} />
