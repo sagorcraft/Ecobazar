@@ -8,6 +8,7 @@ import TeamOne from '../assets/images/teamone.webp'
 import TeamTwo from '../assets/images/teamtwo.webp'
 import TeamThree from '../assets/images/teamthree.webp'
 import TeamFour from '../assets/images/teamfour.webp'
+import Testimonial from '../components/Testimonial'
 
 const features = [
   { icon: Leaf, title: '100% Organic Food', desc: '100% healthy & fresh food' },
@@ -114,7 +115,7 @@ const About = () => {
               Shop Now <ArrowRight size={16} />
             </button>
           </div>
-          <div>
+          <div className='-ml-[200px]'>
             <img src={DeliveryMan} alt="Delivery man" className="w-full" />
           </div>
         </div>
@@ -154,6 +155,8 @@ const About = () => {
           </div>
         </Container>
       </div>
+
+      <Testimonial />
 
     </section>
   )
