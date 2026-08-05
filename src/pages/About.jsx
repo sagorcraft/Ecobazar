@@ -4,11 +4,9 @@ import { Leaf, Headset, MessageCircle, ShieldCheck, Truck, Check, ArrowRight, Ch
 import FoodOne from '../assets/images/foodone.webp'
 import FoodTwo from '../assets/images/foodtwo.webp'
 import DeliveryMan from '../assets/images/deliveryman.webp'
-import TeamOne from '../assets/images/teamone.webp'
-import TeamTwo from '../assets/images/teamtwo.webp'
-import TeamThree from '../assets/images/teamthree.webp'
-import TeamFour from '../assets/images/teamfour.webp'
 import Testimonial from '../components/Testimonial'
+import CompanyName from '../components/CompanyName'
+import OurTeam from '../components/layouts/OurTeam'
 
 const features = [
   { icon: Leaf, title: '100% Organic Food', desc: '100% healthy & fresh food' },
@@ -25,12 +23,6 @@ const checklist = [
   'Maecenas ut nunc fringilla vel varius',
 ]
 
-const team = [
-  { img: TeamOne, name: 'Jenny Wilson', role: 'Ceo & Founder' },
-  { img: TeamFour, name: 'Jane Cooper', role: 'Worker' },
-  { img: TeamThree, name: 'Cody Fisher', role: 'Security Guard' },
-  { img: TeamTwo, name: 'Robert Fox', role: 'Senior Farm Manager' },
-]
 
 const About = () => {
   return (
@@ -122,41 +114,11 @@ const About = () => {
       </Container>
 
       {/* Our Awesome Team */}
-      <div className="bg-gry py-16">
-        <Container>
-          <div className="text-center max-w-lg mx-auto mb-12">
-            <h2 className="text-hsize font-semibold mb-3">Our Awesome Team</h2>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              Pellentesque a ante suscipit, luctus tellus vel eget arcu. Nulla
-              sem convallis ut lectus tincidunt bibendum.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button className="hidden md:flex shrink-0 w-10 h-10 rounded-full bg-white shadow items-center justify-center hover:bg-primary hover:text-white transition">
-              <ChevronLeft size={18} />
-            </button>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
-              {team.map(({ img, name, role }, i) => (
-                <div key={i} className="bg-white rounded-xl overflow-hidden shadow-sm">
-                  <img src={img} alt={name} className="w-full h-56 object-cover" />
-                  <div className="p-4">
-                    <h4 className="text-sm font-semibold">{name}</h4>
-                    <p className="text-xs text-gray-400">{role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <button className="hidden md:flex shrink-0 w-10 h-10 rounded-full bg-white shadow items-center justify-center hover:bg-primary hover:text-white transition">
-              <ChevronRight size={18} />
-            </button>
-          </div>
-        </Container>
-      </div>
+      <OurTeam />
 
       <Testimonial />
+
+      <CompanyName />
 
     </section>
   )

@@ -9,7 +9,6 @@ import Breadcrumb from '../Breadcrumb'
 
 const MainLayouts = () => {
   let pageName = useLocation().pathname
-  console.log(pageName)
   
   return (
     <>

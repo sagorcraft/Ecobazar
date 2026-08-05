@@ -217,10 +217,10 @@ const NavBar = () => {
                   opacity-0 invisible translate-y-3
                   group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                   transition-all duration-300 z-50'>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Shop Grid</Link>
+                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Shop</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Shop List</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Product Details</Link>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Cart</Link>
+                  <Link to="/shoppingcart" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Shopping Cart</Link>
                   <Link to="/checkout" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Checkout</Link>
                 </div>
               </li>
@@ -235,7 +235,7 @@ const NavBar = () => {
                   opacity-0 invisible translate-y-3
                   group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                   transition-all duration-300 z-50'>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>About Us</Link>
+                  <Link to="/about" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>About Us</Link>
                   <Link to="/faq" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>FAQ</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>My Account</Link>
                   <Link to="/login" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Login</Link>

@@ -1,28 +1,24 @@
 @import "tailwindcss";
 
-
 @font-face {
-  font-family: 'Poppins';
-  src: url('./assets/font/Poppins-Regular.ttf') format('ttf');
+  font-family: "Poppins";
+  src: url("./assets/font/Poppins-Regular.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
 }
 
 @theme {
-  --color-primary: #00B207;
-  --color-badgeone: #EA4B48;
-  --color-badgetwo: #2388FF;
-  --color-gry: #F2F2F2;
+  --color-primary: #00b207;
+  --color-badgeone: #ea4b48;
+  --color-badgetwo: #2388ff;
+  --color-gry: #f2f2f2;
   --text-hsize: 32px;
-  --font-pop: "Poppins", sans-serif; 
-
+  --font-pop: "Poppins", sans-serif;
 }
 
-
-
 /* ===leftBannerSwiper css==== */
-.prev-arrow{
-  background:white;
+.prev-arrow {
+  background: white;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -30,13 +26,13 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 0;
   transform: translateY(-50%);
   z-index: 111;
 }
-.next-arrow{
-  background:white;
+.next-arrow {
+  background: white;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -45,35 +41,35 @@
   align-items: center;
   cursor: pointer;
   position: absolute;
-  top:50%;
+  top: 50%;
   right: 0;
   transform: translateY(-50%);
   z-index: 111;
 }
-.swiper-button-disabled{
+.swiper-button-disabled {
   background: gray;
   cursor: not-allowed;
 }
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  background: #E6E6E6;
-  display:inline-block;
+  background: #e6e6e6;
+  display: inline-block;
   margin-left: 5px;
   border-radius: 50%;
   cursor: pointer;
 }
-.swiper-pagination-bullet-active{
-  background: #00B207;
+.swiper-pagination-bullet-active {
+  background: #00b207;
 }
-.swiper-pagination{
+.swiper-pagination {
   position: absolute;
   bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
 }
-.swiper-scrollbar{
+.swiper-scrollbar {
   opacity: 0;
   transition-duration: 400ms;
   height: 10px;
@@ -82,7 +78,7 @@
   bottom: 0;
   z-index: 3;
   width: 100%;
-  border-radius:50px;
+  border-radius: 50px;
 }
 .swiper-scrollbar-drag {
   background: rgb(182, 219, 193);
@@ -90,8 +86,8 @@
   border-radius: 50px;
 }
 
-.swiper-button-disabled{
-  background: #E6E6E6 !important;
+.swiper-button-disabled {
+  background: #e6e6e6 !important;
   color: #999 !important;
   cursor: not-allowed;
 }
@@ -114,4 +110,30 @@
 
 .rightBannerSwiper .swiper-pagination-bullet {
   margin: 0 !important;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.logo-img {
+  filter: grayscale(1) opacity(0.6);
+  transition: filter 0.3s ease;
+}
+
+.logo-img:hover {
+  filter: invert(53%) sepia(90%) saturate(1734%) hue-rotate(83deg)
+    brightness(94%) contrast(101%);
 }

@@ -10,6 +10,7 @@ import DiscountBanner from '../components/DiscountBanner'
 import Blog from '../components/Blog'
 import Testimonial from '../components/Testimonial'
 import CompanyName from '../components/CompanyName'
+import InstagramPost from '../components/layouts/InstagramPost'
 
 const Home = () => {
   let [proData, setProData] = useState([])
@@ -55,6 +56,7 @@ const Home = () => {
       <Blog />
       <Testimonial />
       <CompanyName />
+      <InstagramPost />
     </>
   )
 }
