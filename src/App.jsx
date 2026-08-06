@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import ShoppingCart from "./pages/ShoppingCart";
 import Shop from "./pages/Shop";
+import Details from "./pages/Details";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/cat" element={<Category />} />
           <Route path="/product" element={<Products />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/details" element={<Details />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

@@ -219,7 +219,7 @@ const NavBar = () => {
                   transition-all duration-300 z-50'>
                   <Link to="/shop" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Shop</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Shop List</Link>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Product Details</Link>
+                  <Link to="/details" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Product Details</Link>
                   <Link to="/shoppingcart" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Shopping Cart</Link>
                   <Link to="/checkout" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Checkout</Link>
                 </div>
