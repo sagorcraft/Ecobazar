@@ -254,7 +254,7 @@ const NavBar = () => {
                   opacity-0 invisible translate-y-3
                   group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                   transition-all duration-300 z-50'>
-                  <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Blog Grid</Link>
+                  <Link to="/bloglist" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Blog List</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Blog Details</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Recipes</Link>
                   <Link to="#" className='block px-5 py-3 text-sm text-gray-700 hover:bg-primary hover:text-white duration-300'>Food Tips</Link>

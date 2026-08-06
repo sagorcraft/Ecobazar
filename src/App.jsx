@@ -16,6 +16,7 @@ import About from "./pages/About";
 import ShoppingCart from "./pages/ShoppingCart";
 import Shop from "./pages/Shop";
 import Details from "./pages/Details";
+import Popup from "./components/layouts/Popup";
 
 
 function App() {

@@ -6,12 +6,14 @@ import NavBar from '../NavBar'
 import Footer from '../Footer/Footer'
 import FooterTop from '../Footer/FooterTop'
 import Breadcrumb from '../Breadcrumb'
+import Popup from './Popup'
 
 const MainLayouts = () => {
   let pageName = useLocation().pathname
   
   return (
     <>
+      <Popup />
       <TopBar />
       <SearchBar />
       <NavBar />
