@@ -43,7 +43,7 @@ const Home = () => {
       <ProductShowcase 
         type="hotdeal"
         title="Hot Deals" 
-        allData={proData.slice(0, 15)} 
+        allData={proData} 
         viewAllLink="/product"
       />
       <DiscountBanner />

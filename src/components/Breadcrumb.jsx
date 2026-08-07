@@ -21,7 +21,7 @@ const Breadcrumb = () => {
             <span className='text-[#808080]'> &gt; </span>
           )}
           {arr.map((item, index) => (
-            <span key={index} className='font-pop text-sm text-[#808080] hover:text-primary'>
+            <span key={index} className='font-pop font-medium text-sm text-primary'>
                 {item.charAt(0).toUpperCase() + item.slice(1)}
                 {index !== arr.length - 1 && 
                   <span className=' text-[#808080]'> &gt; </span>}

@@ -8,49 +8,48 @@ import { GoPackage } from "react-icons/go";
 const Featured = () => {
   return (
     <Container>
-      <div className='flex mx-auto shadow-md  p-10'>
-        <div className='flex items-center w-[306px] gap-x-4 mx-auto'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 shadow-md p-10 rounded-lg'>
+        <div className='flex items-center gap-x-4 mx-auto w-full max-w-[306px]'>
           <div>
-              <TbTruckDelivery  className='text-[40px] text-[#00B207]' />
+            <TbTruckDelivery className='text-[40px] text-[#00B207]' />
           </div>
           <div>
-              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>Free Shipping</h2>
-            <p className='font-poppins font-normal text-[15px] text-[#999999]'> Free shipping on all your order</p>
+            <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>Free Shipping</h2>
+            <p className='font-poppins font-normal text-[15px] text-[#999999]'>Free shipping on all your order</p>
           </div>
         </div>
 
-        <div className='flex items-center w-[306px] gap-x-4 mx-auto'>
+        <div className='flex items-center gap-x-4 mx-auto w-full max-w-[306px]'>
           <div>
-              <TfiHeadphoneAlt className='text-[40px] text-[#00B207]' />
+            <TfiHeadphoneAlt className='text-[40px] text-[#00B207]' />
           </div>
           <div>
-              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>Customer Support 24/7</h2>
+            <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>Customer Support 24/7</h2>
             <p className='font-poppins font-normal text-[15px] text-[#999999]'>Instant access to Support</p>
           </div>
         </div>
         
-        <div className='flex items-center w-[306px] gap-x-4 mx-auto'>
+        <div className='flex items-center gap-x-4 mx-auto w-full max-w-[306px]'>
           <div>
-              <RiShoppingBag4Line className='text-[40px] text-[#00B207]' />
+            <RiShoppingBag4Line className='text-[40px] text-[#00B207]' />
           </div>
           <div>
-              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>100% Secure Payment</h2>
+            <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>100% Secure Payment</h2>
             <p className='font-poppins font-normal text-[15px] text-[#999999]'>We ensure your money is save</p>
           </div>
         </div>
 
-        <div className='flex items-center w-[306px] gap-x-4 mx-auto'>
+        <div className='flex items-center gap-x-4 mx-auto w-full max-w-[306px]'>
           <div>
-              <GoPackage className='text-[40px] text-[#00B207]' />
+            <GoPackage className='text-[40px] text-[#00B207]' />
           </div>
           <div>
-              <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>Money-Back Guarantee</h2>
+            <h2 className='font-poppins font-semibold text-[16px] text-[#1A1A1A] pb-[5px]'>Money-Back Guarantee</h2>
             <p className='font-poppins font-normal text-[15px] text-[#999999]'>30 Days Money-Back Guarantee</p>
           </div>
         </div> 
       </div>
     </Container>
-
   )
 }
 

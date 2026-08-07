@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-const CountdownTimer = ({ deadline }) => {
+const CountdownTimer = ({ 
+    deadline, 
+    textColor = "text-[#1A1A1A]",
+    labelColor="text-gray"
+   }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
@@ -37,21 +41,25 @@ const CountdownTimer = ({ deadline }) => {
     return () => clearInterval(timer);
   }, [deadline]);
 
+  const entries = Object.entries(timeLeft);
+
   return (
-    <div className="flex items-center justify-center gap-1 mt-2">
-      {Object.entries(timeLeft).map(([key, value], index) => (
+    <div className="flex items-start justify-center gap-2 mt-2">
+      {entries.map(([key, value], index) => (
         <React.Fragment key={key}>
-          <div className="flex flex-col items-center">
-            <span className="font-bold text-[#1A1A1A] text-[14px]">
+          <div className="flex flex-col items-center min-w-[32px]">
+            <span className={`font-semibold ${textColor} text-[18px] leading-none`}>
               {value}
             </span>
-            <span className="text-[#999] text-[10px] capitalize">
+            <span className={`${labelColor} text-[10px] uppercase font-medium mt-1`}>
               {key}
             </span>
           </div>
-
-          {index > 0 && (
-            <span className="font-normal text-[#1A1A1A]">:</span>
+          
+          {index < entries.length - 1 && (
+            <span className={`text-[16px] leading-none mt-0.5 font-light ${textColor}`}>
+              :
+            </span>
           )}
         </React.Fragment>
       ))}
