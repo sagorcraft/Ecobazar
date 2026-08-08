@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import axios from 'axios'
 import Container from '../components/layouts/Container'
 import {
   FiChevronUp,
@@ -13,107 +14,256 @@ import {
   FiHeart,
   FiCheckCircle,
   FiPercent,
+  FiPlay,
 } from 'react-icons/fi'
 import { FaLeaf } from 'react-icons/fa'
-
-const thumbnails = [
-  '/assets/img/cabbage-thumb-1.png',
-  '/assets/img/cabbage-thumb-2.png',
-  '/assets/img/cabbage-thumb-3.png',
-  '/assets/img/cabbage-thumb-4.png',
-]
-
-const tags = ['Vegetables', 'Healthy', 'Chinese', 'Cabbage', 'Green Cabbage']
-
-const features = [
-  '132 g of fresh leaves provides.',
-  'Aliquam ac est at augue volutpat elementum.',
-  'Quisque nec enim eget sapien molestie.',
-  'Proin convallis odio volutpat finibus posuere.',
-]
+import RelatedProducts from '../components/RelatedProducts'
+import PromoImage from '../assets/images/Video.webp'
 
 const tabs = ['Descriptions', 'Additional Information', 'Customer Feedback']
 
 const Details = () => {
-  const [qty, setQty] = useState(5)
+  const [proData, setProData] = useState([])
+  const [selectedImgIndex, setSelectedImgIndex] = useState(0) // বর্তমান সিলেক্টেড ইমেজের Index
+  const [qty, setQty] = useState(1)
   const [activeTab, setActiveTab] = useState('Descriptions')
+  const [isWishlist, setIsWishlist] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [isPromoPlaying, setIsPromoPlaying] = useState(false)
+
+  // Hover Zoom States
+  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 })
+  const [isHovered, setIsHovered] = useState(false)
+
+  // Thumbnail Container & Item Refs for Scrolling
+  const thumbnailRef = useRef(null)
+
+  useEffect(() => {
+    async function allPro() {
+      try {
+        setLoading(true)
+        let response = await axios.get('https://dummyjson.com/products')
+        const products = response.data.products
+        setProData(products)
+      } catch (error) {
+        console.error('Error fetching data with axios:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    allPro()
+  }, [])
+
+  // এখন selectedImgIndex আসলে proData array এর মধ্যে কোন প্রোডাক্ট সিলেক্টেড তার Index
+  const singleProduct = proData[selectedImgIndex]
+
+  // স্লাইডার স্ক্রোলিং এবং সিলেক্টেড আইটেম ভিউতে আনার ফাংশন (এখন প্রোডাক্ট বদলায়)
+  const handleSelectImage = (index) => {
+    setSelectedImgIndex(index)
+    setQty(1) // নতুন প্রোডাক্ট সিলেক্ট হলে কোয়ান্টিটি রিসেট
+    if (thumbnailRef.current) {
+      const activeItem = thumbnailRef.current.children[index]
+      if (activeItem) {
+        activeItem.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'nearest',
+        })
+      }
+    }
+  }
+
+  // Down Arrow: পরবর্তী প্রোডাক্টে স্লাইড + মেইন ইমেজ ও তথ্য চেঞ্জ
+  const handleNextImage = () => {
+    if (proData.length === 0) return
+    const nextIndex = (selectedImgIndex + 1) % proData.length
+    handleSelectImage(nextIndex)
+  }
+
+  // Up Arrow: পূর্ববর্তী প্রোডাক্টে স্লাইড + মেইন ইমেজ ও তথ্য চেঞ্জ
+  const handlePrevImage = () => {
+    if (proData.length === 0) return
+    const prevIndex = (selectedImgIndex - 1 + proData.length) % proData.length
+    handleSelectImage(prevIndex)
+  }
+
+  // Mouse move handler for Zoom
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect()
+    const x = ((e.clientX - left) / width) * 100
+    const y = ((e.clientY - top) / height) * 100
+    setZoomPosition({ x, y })
+  }
+
+  if (loading) {
+    return (
+      <div className="py-20 text-center font-pop">
+        <p className="text-gray-500">Loading product details...</p>
+      </div>
+    )
+  }
+
+  if (!singleProduct) {
+    return (
+      <div className="py-20 text-center font-pop">
+        <p className="text-red-500">No product found!</p>
+      </div>
+    )
+  }
+
+  const currentMainImage = singleProduct.images?.[0] || singleProduct.thumbnail
+  const oldPrice = (
+    singleProduct.price /
+    (1 - singleProduct.discountPercentage / 100)
+  ).toFixed(2)
 
   return (
     <section className="font-pop py-10">
       <Container>
-        {/* Top: gallery + product info */}
+        {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Gallery */}
-          <div className="flex gap-4">
-            <div className="flex flex-col items-center gap-3">
-              <button className="text-gray-400 hover:text-primary">
-                <FiChevronUp size={18} />
+
+          {/* Dynamic Image Gallery */}
+          <div className="flex flex-row gap-4 items-start">
+
+            {/* Thumbnail Controls & Scroll Slider */}
+            <div className="flex flex-col items-center gap-2">
+
+              {/* Up/Previous Arrow */}
+              <button
+                type="button"
+                onClick={handlePrevImage}
+                aria-label="Previous Image"
+                className="text-gray-400 hover:text-primary transition-colors p-1"
+              >
+                <FiChevronUp size={20} />
               </button>
-              {thumbnails.map((src, i) => (
-                <div
-                  key={i}
-                  className={`w-14 h-14 rounded-md border ${
-                    i === 0 ? 'border-primary' : 'border-gray-200'
-                  } p-1 cursor-pointer`}
-                >
-                  <img src={src} alt={`thumbnail-${i}`} className="w-full h-full object-contain" />
-                </div>
-              ))}
-              <button className="text-gray-400 hover:text-primary">
-                <FiChevronDown size={18} />
+
+              {/* Vertical Scrollable Thumbnail List */}
+              <div
+                ref={thumbnailRef}
+                className="flex flex-col gap-3 overflow-y-auto max-h-[360px] py-1 px-1"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {proData.map((product, i) => (
+                  <button
+                    key={product.id ?? i}
+                    onClick={() => handleSelectImage(i)}
+                    className={`w-16 h-16 rounded-lg border ${
+                      selectedImgIndex === i
+                        ? 'border-gray-900 shadow-sm'
+                        : 'border-gray-200 hover:border-gray-400 opacity-70 hover:opacity-100'
+                    } p-1 cursor-pointer shrink-0 transition-all bg-white flex items-center justify-center`}
+                  >
+                    <img
+                      src={product.thumbnail}
+                      alt={product.title || `thumb-${i}`}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </button>
+                ))}
+              </div>
+
+              {/* Down/Next Arrow */}
+              <button
+                type="button"
+                onClick={handleNextImage}
+                aria-label="Next Image"
+                className="text-gray-400 hover:text-primary transition-colors p-1"
+              >
+                <FiChevronDown size={20} />
               </button>
             </div>
 
-            <div className="flex-1 bg-gry rounded-2xl flex items-center justify-center p-8">
+            {/* Main Image View with Mouse Hover Zoom */}
+            <div
+              className="flex-1 bg-gray-50 rounded-2xl flex items-center justify-center p-6 h-[400px] relative overflow-hidden cursor-crosshair border border-gray-100"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onMouseMove={handleMouseMove}
+            >
               <img
-                src="/assets/img/cabbage-main.png"
-                alt="Chinese Cabbage"
-                className="max-h-80 object-contain"
+                src={currentMainImage}
+                alt={singleProduct.title}
+                className={`w-full h-full object-contain transition-opacity duration-200 ${
+                  isHovered ? 'opacity-0' : 'opacity-100'
+                }`}
               />
+
+              {/* Smooth Zoom Effect on Hover */}
+              {isHovered && (
+                <div
+                  className="absolute inset-0 pointer-events-none transition-all duration-75"
+                  style={{
+                    backgroundImage: `url(${currentMainImage})`,
+                    backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                    backgroundSize: '220%',
+                    backgroundRepeat: 'no-repeat',
+                  }}
+                />
+              )}
             </div>
           </div>
 
-          {/* Info */}
+          {/* Right Product Info */}
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-hsize font-semibold text-gray-900">Chinese Cabbage</h1>
-              <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-                In Stock
+              <h1 className="text-2xl font-bold text-gray-900">{singleProduct.title}</h1>
+              <span
+                className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                  singleProduct.stock > 0
+                    ? 'bg-green-100 text-green-700'
+                    : 'bg-red-100 text-red-600'
+                }`}
+              >
+                {singleProduct.stock > 0 ? 'In Stock' : 'Out of Stock'}
               </span>
             </div>
-            <p className="text-sm text-gray-400 mt-1">SKU: 2351954</p>
+            <p className="text-sm text-gray-400 mt-1">SKU: {singleProduct.sku || singleProduct.id}</p>
 
+            {/* Ratings */}
             <div className="flex items-center gap-2 mt-3">
               <div className="flex text-yellow-400">
-                {Array.from({ length: 4 }).map((_, i) => (
-                  <FiStar key={i} size={16} fill="currentColor" strokeWidth={0} />
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <FiStar
+                    key={i}
+                    size={16}
+                    fill={i < Math.floor(singleProduct.rating) ? 'currentColor' : 'none'}
+                    className={i < Math.floor(singleProduct.rating) ? '' : 'text-gray-300'}
+                  />
                 ))}
-                <FiStar size={16} className="text-gray-300" fill="currentColor" strokeWidth={0} />
               </div>
-              <span className="text-sm text-gray-400">4 Review</span>
-            </div>
-
-            <div className="flex items-center gap-3 mt-4">
-              <span className="text-gray-400 line-through text-lg">$48.00</span>
-              <span className="text-2xl font-semibold text-gray-900">$17.28</span>
-              <span className="flex items-center gap-1 text-xs bg-badgeone/10 text-badgeone px-2 py-1 rounded-full">
-                <FiPercent size={12} /> 51% Off
+              <span className="text-sm text-gray-500 font-medium">
+                {singleProduct.rating} ({singleProduct.reviews?.length || 0} Reviews)
               </span>
             </div>
 
-            <div className="flex items-center gap-2 mt-4">
-              <span className="text-gray-400 text-sm">brand</span>
-              <FaLeaf size={16} className="text-primary" />
-              <span className="text-sm font-medium text-gray-800">Yammy</span>
+            {/* Price */}
+            <div className="flex items-center gap-3 mt-4">
+              <span className="text-gray-400 line-through text-lg">${oldPrice}</span>
+              <span className="text-3xl font-bold text-gray-900">${singleProduct.price}</span>
+              <span className="flex items-center gap-1 text-xs bg-red-100 text-red-600 font-semibold px-2.5 py-1 rounded-full">
+                <FiPercent size={12} /> {Math.round(singleProduct.discountPercentage)}% Off
+              </span>
             </div>
 
+            {/* Brand */}
+            {singleProduct.brand && (
+              <div className="flex items-center gap-2 mt-4">
+                <span className="text-gray-400 text-sm">Brand:</span>
+                <FaLeaf size={16} className="text-primary" />
+                <span className="text-sm font-semibold text-gray-800">{singleProduct.brand}</span>
+              </div>
+            )}
+
+            {/* Social Share */}
             <div className="flex items-center gap-3 mt-3">
-              <span className="text-gray-400 text-sm">Share Item</span>
+              <span className="text-gray-400 text-sm">Share Item:</span>
               {[FiFacebook, FiTwitter, FiInstagram].map((Icon, i) => (
                 <button
                   key={i}
-                  className={`w-7 h-7 rounded-full flex items-center justify-center text-white ${
-                    i === 0 ? 'bg-primary' : 'bg-gray-300'
+                  className={`w-8 h-8 rounded-full flex items-center justify-center text-white transition-opacity hover:opacity-80 ${
+                    i === 0 ? 'bg-primary' : 'bg-gray-400'
                   }`}
                 >
                   <Icon size={14} />
@@ -121,65 +271,76 @@ const Details = () => {
               ))}
             </div>
 
-            <p className="text-sm text-gray-400 leading-relaxed mt-4 max-w-md">
-              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos. Nulla nibh diam, blandit nec consequat nec, ultrices at
-              ipsum. Nulla varius magna a consequat pharetra.
+            <p className="text-sm text-gray-500 leading-relaxed mt-4 max-w-md">
+              {singleProduct.description}
             </p>
 
+            {/* Cart Actions */}
             <div className="flex items-center gap-4 mt-6">
-              <div className="flex items-center border border-gray-200 rounded-full px-3 py-2">
-                <button onClick={() => setQty((q) => Math.max(1, q - 1))} className="text-gray-500">
+              <div className="flex items-center border border-gray-200 rounded-full px-4 py-2">
+                <button
+                  onClick={() => setQty((q) => Math.max(1, q - 1))}
+                  className="text-gray-500 hover:text-primary transition-colors"
+                >
                   <FiMinus size={14} />
                 </button>
-                <span className="w-8 text-center text-sm">{qty}</span>
-                <button onClick={() => setQty((q) => q + 1)} className="text-gray-500">
+                <span className="w-8 text-center text-sm font-semibold">{qty}</span>
+                <button
+                  onClick={() => setQty((q) => q + 1)}
+                  className="text-gray-500 hover:text-primary transition-colors"
+                >
                   <FiPlus size={14} />
                 </button>
               </div>
 
-              <button className="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90">
+              <button className="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-all shadow-sm">
                 <FiShoppingBag size={16} /> Add to Cart
               </button>
 
-              <button className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-primary">
-                <FiHeart size={16} />
+              <button
+                onClick={() => setIsWishlist(!isWishlist)}
+                className={`w-11 h-11 rounded-full border flex items-center justify-center transition-colors ${
+                  isWishlist
+                    ? 'border-red-500 text-red-500 bg-red-50'
+                    : 'border-gray-200 text-gray-400 hover:text-primary'
+                }`}
+              >
+                <FiHeart size={16} fill={isWishlist ? 'currentColor' : 'none'} />
               </button>
             </div>
 
-            <div className="mt-6 space-y-1 text-sm">
+            {/* Category & Tags */}
+            <div className="mt-6 space-y-2 text-sm border-t border-gray-100 pt-4">
               <p className="text-gray-400">
-                Category: <span className="text-gray-700">Vegetables</span>
+                Category: <span className="text-gray-800 font-medium capitalize">{singleProduct.category}</span>
               </p>
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-gray-400">Tag:</span>
-                {tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className={`px-3 py-1 rounded-full text-xs ${
-                      tag === 'Chinese'
-                        ? 'bg-primary text-white'
-                        : 'bg-gry text-gray-600'
-                    }`}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              {singleProduct.tags && (
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-gray-400">Tags:</span>
+                  {singleProduct.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 capitalize"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Tabs */}
+        {/* Dynamic Tabs */}
         <div className="border-b border-gray-200 mt-12 flex gap-8">
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`pb-3 text-sm font-medium ${
+              className={`pb-3 text-sm font-semibold transition-all ${
                 activeTab === tab
                   ? 'text-gray-900 border-b-2 border-primary'
-                  : 'text-gray-400'
+                  : 'text-gray-400 hover:text-gray-600'
               }`}
             >
               {tab}
@@ -187,60 +348,112 @@ const Details = () => {
           ))}
         </div>
 
-        {/* Tab content */}
+        {/* Tab Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-8">
-          <div className="lg:col-span-2 text-sm text-gray-400 leading-relaxed space-y-4">
-            <p>
-              Sed commodo aliquam dui eu porta. Fusce ipsum felis, imperdiet id posuere eu,
-              vehicula ut mauris. Maecenas tincidunt ligula a sem vestibulum pharetra.
-              Maecenas auctor tortor tellus, nec laoreet nisi porttitor vel. Etiam pharetra
-              vulputate leo eu bibendum.
-            </p>
-            <p>
-              Nulla mauris tellus, feugiat quis pharetra sed, gravida ac dui sed iaculis,
-              metus faucibus fermentum tincidunt, turpis mi viverra velit, pellentesque
-              cursus neque et eget nulla. Proin
-            </p>
+          <div className="lg:col-span-2 text-sm text-gray-500 leading-relaxed">
+            {activeTab === 'Descriptions' && (
+              <div className="space-y-4">
+                <p>{singleProduct.description}</p>
+                <ul className="space-y-2 pt-2">
+                  <li className="flex items-center gap-2">
+                    <FiCheckCircle size={16} className="text-primary shrink-0" />
+                    <span>Weight: {singleProduct.weight}g</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <FiCheckCircle size={16} className="text-primary shrink-0" />
+                    <span>Dimensions: {singleProduct.dimensions?.width} x {singleProduct.dimensions?.height} x {singleProduct.dimensions?.depth} cm</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <FiCheckCircle size={16} className="text-primary shrink-0" />
+                    <span>Warranty: {singleProduct.warrantyInformation}</span>
+                  </li>
+                </ul>
+              </div>
+            )}
 
-            <ul className="space-y-2 pt-2">
-              {features.map((f) => (
-                <li key={f} className="flex items-center gap-2">
-                  <FiCheckCircle size={16} className="text-primary shrink-0" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p>
-              Orci ut diam mattis, hendrerit consequat suspisse at sollicitudin nunc. Nulla
-              blandit enim non turpis lobortis dictum.
-            </p>
-          </div>
-
-          <div className="bg-gry rounded-2xl overflow-hidden">
-            <img
-              src="/assets/img/promo-farmer.png"
-              alt="Fresh vegetables"
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4 flex justify-between text-xs">
-              <div className="flex items-start gap-2">
-                <FiPercent size={16} className="text-primary shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-medium text-gray-800">54% Discount</p>
-                  <p className="text-gray-400">Save your $64 money with us</p>
+            {activeTab === 'Additional Information' && (
+              <div className="space-y-3">
+                <div className="grid grid-cols-2 gap-4 border-b pb-2">
+                  <span className="font-medium text-gray-700">Minimum Order Quantity</span>
+                  <span>{singleProduct.minimumOrderQuantity} units</span>
+                </div>
+                <div className="grid grid-cols-2 gap-4 border-b pb-2">
+                  <span className="font-medium text-gray-700">Return Policy</span>
+                  <span>{singleProduct.returnPolicy}</span>
                 </div>
               </div>
-              <div className="flex items-start gap-2">
-                <FaLeaf size={16} className="text-primary shrink-0 mt-0.5" />
+            )}
+
+            {activeTab === 'Customer Feedback' && (
+              <div className="space-y-4">
+                {singleProduct.reviews?.map((review, i) => (
+                  <div key={i} className="border-b pb-3">
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-gray-900">{review.reviewerName}</span>
+                      <span className="text-xs text-gray-400">{review.date?.slice(0, 10)}</span>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-1">{review.comment}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div>
+            {/* Promo Video */}
+            <div className="relative rounded-2xl overflow-hidden bg-gray-100 h-52">
+              {isPromoPlaying ? (
+                <video
+                  src="https://videos.pexels.com/video-files/4253139/4253139-sd_640_360_25fps.mp4"
+                  poster="/assets/img/promo-farmer.png"
+                  className="w-full h-full object-cover"
+                  controls
+                  autoPlay
+                />
+              ) : (
+                <>
+                  <img
+                    src={PromoImage}
+                    alt="Promo Image"
+                    className="w-full h-full object-cover"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setIsPromoPlaying(true)}
+                    aria-label="Play promo video"
+                    className="absolute inset-0 flex items-center justify-center group"
+                  >
+                    <span className="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                      <FiPlay size={20} className="text-white ml-0.5" fill="currentColor" />
+                    </span>
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Feature Badges */}
+            <div className="grid grid-cols-2 gap-3 mt-4">
+              <div className="border border-gray-100 rounded-2xl p-4 flex items-start gap-2">
+                <FiPercent size={18} className="text-primary shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-medium text-gray-800">100% Organic</p>
-                  <p className="text-gray-400">100% Organic Vegetables</p>
+                  <p className="text-sm font-semibold text-gray-800">
+                    {Math.round(singleProduct.discountPercentage)}% Discount
+                  </p>
+                  <p className="text-xs text-gray-400 mt-0.5">Save your {Math.round(singleProduct.discountPercentage)}% money with us</p>
+                </div>
+              </div>
+              <div className="border border-gray-100 rounded-2xl p-4 flex items-start gap-2">
+                <FaLeaf size={18} className="text-primary shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-semibold text-gray-800">100% Organic</p>
+                  <p className="text-xs text-gray-400 mt-0.5">100% Organic Vegetables</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <RelatedProducts />
       </Container>
     </section>
   )
