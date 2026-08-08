@@ -24,7 +24,7 @@ const tabs = ['Descriptions', 'Additional Information', 'Customer Feedback']
 
 const Details = () => {
   const [proData, setProData] = useState([])
-  const [selectedImgIndex, setSelectedImgIndex] = useState(0) // বর্তমান সিলেক্টেড ইমেজের Index
+  const [selectedImgIndex, setSelectedImgIndex] = useState(0)
   const [qty, setQty] = useState(1)
   const [activeTab, setActiveTab] = useState('Descriptions')
   const [isWishlist, setIsWishlist] = useState(false)
@@ -35,7 +35,6 @@ const Details = () => {
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
 
-  // Thumbnail Container & Item Refs for Scrolling
   const thumbnailRef = useRef(null)
 
   useEffect(() => {
@@ -54,13 +53,11 @@ const Details = () => {
     allPro()
   }, [])
 
-  // এখন selectedImgIndex আসলে proData array এর মধ্যে কোন প্রোডাক্ট সিলেক্টেড তার Index
   const singleProduct = proData[selectedImgIndex]
 
-  // স্লাইডার স্ক্রোলিং এবং সিলেক্টেড আইটেম ভিউতে আনার ফাংশন (এখন প্রোডাক্ট বদলায়)
   const handleSelectImage = (index) => {
     setSelectedImgIndex(index)
-    setQty(1) // নতুন প্রোডাক্ট সিলেক্ট হলে কোয়ান্টিটি রিসেট
+    setQty(1)
     if (thumbnailRef.current) {
       const activeItem = thumbnailRef.current.children[index]
       if (activeItem) {
@@ -73,21 +70,18 @@ const Details = () => {
     }
   }
 
-  // Down Arrow: পরবর্তী প্রোডাক্টে স্লাইড + মেইন ইমেজ ও তথ্য চেঞ্জ
   const handleNextImage = () => {
     if (proData.length === 0) return
     const nextIndex = (selectedImgIndex + 1) % proData.length
     handleSelectImage(nextIndex)
   }
 
-  // Up Arrow: পূর্ববর্তী প্রোডাক্টে স্লাইড + মেইন ইমেজ ও তথ্য চেঞ্জ
   const handlePrevImage = () => {
     if (proData.length === 0) return
     const prevIndex = (selectedImgIndex - 1 + proData.length) % proData.length
     handleSelectImage(prevIndex)
   }
 
-  // Mouse move handler for Zoom
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect()
     const x = ((e.clientX - left) / width) * 100
@@ -120,16 +114,9 @@ const Details = () => {
   return (
     <section className="font-pop py-10">
       <Container>
-        {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
-          {/* Dynamic Image Gallery */}
           <div className="flex flex-row gap-4 items-start">
-
-            {/* Thumbnail Controls & Scroll Slider */}
             <div className="flex flex-col items-center gap-2">
-
-              {/* Up/Previous Arrow */}
               <button
                 type="button"
                 onClick={handlePrevImage}
@@ -164,7 +151,6 @@ const Details = () => {
                 ))}
               </div>
 
-              {/* Down/Next Arrow */}
               <button
                 type="button"
                 onClick={handleNextImage}
@@ -175,7 +161,6 @@ const Details = () => {
               </button>
             </div>
 
-            {/* Main Image View with Mouse Hover Zoom */}
             <div
               className="flex-1 bg-gray-50 rounded-2xl flex items-center justify-center p-6 h-[400px] relative overflow-hidden cursor-crosshair border border-gray-100"
               onMouseEnter={() => setIsHovered(true)}
@@ -190,7 +175,6 @@ const Details = () => {
                 }`}
               />
 
-              {/* Smooth Zoom Effect on Hover */}
               {isHovered && (
                 <div
                   className="absolute inset-0 pointer-events-none transition-all duration-75"
@@ -205,7 +189,6 @@ const Details = () => {
             </div>
           </div>
 
-          {/* Right Product Info */}
           <div>
             <div className="flex items-center gap-3">
               <h1 className="text-2xl font-bold text-gray-900">{singleProduct.title}</h1>
@@ -452,7 +435,7 @@ const Details = () => {
             </div>
           </div>
         </div>
-
+       {/* ====Related Products===== */}
         <RelatedProducts />
       </Container>
     </section>
