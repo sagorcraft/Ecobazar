@@ -19,6 +19,7 @@ import {
 import { FaLeaf } from 'react-icons/fa'
 import RelatedProducts from '../components/RelatedProducts'
 import PromoImage from '../assets/images/Video.webp'
+import { HiOutlineShoppingBag } from 'react-icons/hi'
 
 const tabs = ['Descriptions', 'Additional Information', 'Customer Feedback']
 
@@ -28,26 +29,20 @@ const Details = () => {
   const [qty, setQty] = useState(1)
   const [activeTab, setActiveTab] = useState('Descriptions')
   const [isWishlist, setIsWishlist] = useState(false)
-  const [loading, setLoading] = useState(true)
-  const [isPromoPlaying, setIsPromoPlaying] = useState(false)
 
   // Hover Zoom States
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
-
   const thumbnailRef = useRef(null)
 
   useEffect(() => {
     async function allPro() {
       try {
-        setLoading(true)
         let response = await axios.get('https://dummyjson.com/products')
         const products = response.data.products
         setProData(products)
       } catch (error) {
-        console.error('Error fetching data with axios:', error)
-      } finally {
-        setLoading(false)
+        console.error( error)
       }
     }
     allPro()
@@ -87,14 +82,6 @@ const Details = () => {
     const x = ((e.clientX - left) / width) * 100
     const y = ((e.clientY - top) / height) * 100
     setZoomPosition({ x, y })
-  }
-
-  if (loading) {
-    return (
-      <div className="py-20 text-center font-pop">
-        <p className="text-gray-500">Loading product details...</p>
-      </div>
-    )
   }
 
   if (!singleProduct) {
@@ -239,21 +226,41 @@ const Details = () => {
               </div>
             )}
 
-            {/* Social Share */}
+             {/* Social Share */}
             <div className="flex items-center gap-3 mt-3">
               <span className="text-gray-400 text-sm">Share Item:</span>
-              {[FiFacebook, FiTwitter, FiInstagram].map((Icon, i) => (
-                <button
+              {[
+                {
+                  Icon: FiFacebook,
+                  href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                    typeof window !== 'undefined' ? window.location.href : ''
+                  )}`,
+                },
+                {
+                  Icon: FiTwitter,
+                  href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                    typeof window !== 'undefined' ? window.location.href : ''
+                  )}&text=${encodeURIComponent(singleProduct.title)}`,
+                },
+                {
+                  Icon: FiInstagram,
+                  href: 'https://www.instagram.com',
+                },
+              ].map(({ Icon, href }, i) => (
+                <a
                   key={i}
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-white transition-opacity hover:opacity-80 ${
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-8 h-8 rounded-full flex items-center justify-center text-white transition-opacity hover:bg-primary ${
                     i === 0 ? 'bg-primary' : 'bg-gray-400'
                   }`}
                 >
                   <Icon size={14} />
-                </button>
+                </a>
               ))}
             </div>
-
+ 
             <p className="text-sm text-gray-500 leading-relaxed mt-4 max-w-md">
               {singleProduct.description}
             </p>
@@ -276,8 +283,8 @@ const Details = () => {
                 </button>
               </div>
 
-              <button className="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-all shadow-sm">
-                <FiShoppingBag size={16} /> Add to Cart
+              <button className="flex items-center gap-2 bg-primary text-white px-40 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-all shadow-sm">
+                 Add to Cart <HiOutlineShoppingBag size={20} />
               </button>
 
               <button
@@ -315,7 +322,7 @@ const Details = () => {
         </div>
 
         {/* Dynamic Tabs */}
-        <div className="border-b border-gray-200 mt-12 flex gap-8">
+        <div className="border-b border-gray-200 mt-12 flex justify-center gap-8">
           {tabs.map((tab) => (
             <button
               key={tab}
@@ -381,20 +388,9 @@ const Details = () => {
               </div>
             )}
           </div>
-
+          {/* ==== promp image ==== */}
           <div>
-            {/* Promo Video */}
-            <div className="relative rounded-2xl overflow-hidden bg-gray-100 h-52">
-              {isPromoPlaying ? (
-                <video
-                  src="https://videos.pexels.com/video-files/4253139/4253139-sd_640_360_25fps.mp4"
-                  poster="/assets/img/promo-farmer.png"
-                  className="w-full h-full object-cover"
-                  controls
-                  autoPlay
-                />
-              ) : (
-                <>
+            <div className="relative rounded-2xl overflow-hidden bg-gray-100 h-60">
                   <img
                     src={PromoImage}
                     alt="Promo Image"
@@ -402,16 +398,12 @@ const Details = () => {
                   />
                   <button
                     type="button"
-                    onClick={() => setIsPromoPlaying(true)}
-                    aria-label="Play promo video"
                     className="absolute inset-0 flex items-center justify-center group"
                   >
                     <span className="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
                       <FiPlay size={20} className="text-white ml-0.5" fill="currentColor" />
                     </span>
                   </button>
-                </>
-              )}
             </div>
 
             {/* Feature Badges */}
@@ -435,7 +427,7 @@ const Details = () => {
             </div>
           </div>
         </div>
-       {/* ====Related Products===== */}
+      {/* ====Related Products===== */}
         <RelatedProducts />
       </Container>
     </section>
